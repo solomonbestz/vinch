@@ -70,6 +70,11 @@
 }
 /* Search button end styling */
 
+/* Header Menu Style display none */
+.header-mobile-menu{
+    display: none;
+}
+
 /* Mobile Footer Menu Styling */
 .mobile-menu{
     display: none;
@@ -95,11 +100,12 @@
    display: inline;
 }
 .mobile-menu li a{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: inline-block;
-    border: 2px solid linear-gradient(to right, rgb(254, 171, 5), rgb(248, 221, 71));
     color: #0add08;
+    border: 1px solid orange;
     text-decoration: none;
-    background: linear-gradient(to right, rgb(254, 171, 5), rgb(248, 221, 71))
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(250, 255, 255))
 }
 
 
@@ -131,10 +137,7 @@
         margin-top: 14px;
     }
     /* Mobile Header Menu Styling */
-    /* div.container{
-        display: inline-block;
-        border: 2px solid orange;
-    } */
+  
     .header-mobile-menu{
         width: 100%;
         background: linear-gradient(to right, rgb(254, 171, 5), rgb(248, 221, 71))
@@ -152,3 +155,70 @@
         padding: 10px;
     }
 }
+@media (min-width: 280px) and (max-width: 320px){ 
+    .mobile-menu li a{
+        width: 45px;
+        height: 50px;
+        padding: 0;
+        border-radius: 6px 6px;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+    .mobile-menu li .fas{
+        height: 50px;
+        padding: 0;
+        margin-top: 14px;
+    }
+    .searchbar{
+        margin-bottom: 10px;
+        margin-top: 24px;
+        height: 30px;
+        background-color: #0add08;
+        border-radius: 30px;
+        padding: 10px;
+    }
+
+    .search_icon{
+        height: 10px;
+        width: 10px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color:white;
+        text-decoration:none;
+    }
+    .search_input{
+        color: white;
+        border: 0;
+        outline: 0;
+        margin-bottom: 20px;
+        background: none;
+        width: 0;
+        caret-color:transparent;
+        line-height: 10px;
+        transition: width 0.4s linear;
+    }
+    
+    .searchbar:hover > .search_input{
+        width: 160px;
+        caret-color:black;
+        transition: width 0.4s linear;
+    }
+
+    .cart{
+
+        margin-bottom: 30px;
+    }
+
+    .cart a{
+        color: #0add08;
+        margin-bottom: 20px;
+        margin-top: 12px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 30px;
+    }
+    
+  }

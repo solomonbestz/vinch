@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.h1-local-market{
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Mobile Media Query */
+@media only screen and (max-width: 768px) {
+    .h1-local-market{
+        margin-top: 90px;
+        font-size: 20px;
+    }
+    
+    
+    
+}

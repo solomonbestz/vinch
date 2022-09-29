@@ -1,19 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.h1-local-market{
-    margin-top: 20px;
+*{
     font-family: 'Poppins', sans-serif;
+}
+.h1-vinch-special{
+    height: 50px;
+    margin-top: 2px;
+    padding-top: 10px;
+    font-size: 25px;
+    border: 1px solid orange;
+    border-radius: 4px 4px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.h1-local-market{
+    height: 50px;
+    margin-top: 5px;
+    padding-top: 10px;
+    font-size: 25px;
+    border: 1px solid orange;
+    border-radius: 4px 4px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.item img{
+    width: 100px;
+    height: 100px;
 }
 
 
-
-/* Mobile Media Query */
-@media only screen and (max-width: 768px) {
+/* Tablets Views */
+@media (min-width: 820px) and (max-width: 920px){
     .h1-local-market{
         margin-top: 90px;
         font-size: 20px;
     }
     
+    .item img{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body h4{
+        font-size: 15px;
+    }
+
+}
+
+
+/* Ipad Views */
+@media (min-width: 680px) and (max-width: 820px) {
+    .h1-local-market{
+        margin-top: 90px;
+        font-size: 20px;
+    }
     
-    
+    .item img{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body h4{
+        text-align: center;
+        font-size: 15px;
+    }
+}
+
+
+/* Medium phone size */
+@media (min-width: 450px) and (max-width: 680px) {
+    .h1-local-market{
+        margin-top: 90px;
+        font-size: 20px;
+    }
+}
+
+/* Small phone screen */
+@media screen and (max-width: 450px){ 
+    .h1-local-market{
+        padding-top: 10px;
+        margin-top: 70px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .item img{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body h4{
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+/* Galaxy Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    .h1-local-market{
+        margin-top: 90px;
+        font-size: 20px;
+    }
 }

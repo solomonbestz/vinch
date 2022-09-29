@@ -27,6 +27,24 @@
     height: 100px;
 }
 
+/* Styles for vinch special product */
+#col{
+    width: 300px;
+}
+.box-element{
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.thumbnail{
+    width: 100%;
+    height: 200px;
+    -webkit-box-shadow: -1px -3px 5px -2px;
+    -moz-box-shadow:  -1px -3px 5px -2px rgba;
+    box-shadow: -1px -3px 5px -2px rgba(21)
+}
 
 /* Tablets Views */
 @media (min-width: 820px) and (max-width: 920px){
@@ -44,9 +62,13 @@
         height: 90px;
     }
     #card-body h4{
+        text-align: center;
         font-size: 15px;
     }
-
+    .thumbnail{
+        width: 100%;
+        height: 200px;
+    }
 }
 
 
@@ -69,6 +91,12 @@
         text-align: center;
         font-size: 15px;
     }
+
+    /* Styles for vinch special product */
+    .thumbnail{
+        width: 100%;
+        height: 200px;
+    }
 }
 
 
@@ -77,6 +105,22 @@
     .h1-local-market{
         margin-top: 90px;
         font-size: 20px;
+    }
+    .item img{
+        width: 100px;
+        height: 90px;
+    }
+    #card-body{
+        width: 100px;
+        height: 100px;
+    }
+    #card-body h4{
+        text-align: center;
+        font-size: 13px;
+    }
+    .thumbnail{
+        width: 100%;
+        height: 100px;
     }
 }
 
@@ -100,6 +144,11 @@
         text-align: center;
         font-size: 13px;
     }
+    /* Styles for vinch special product */
+    .thumbnail{
+        width: 100%;
+        height: 100px;
+    }
 }
 
 /* Galaxy Smartphones (portrait) ----------- */
@@ -107,5 +156,9 @@
     .h1-local-market{
         margin-top: 90px;
         font-size: 20px;
+    }
+    .thumbnail{
+        width: 100%;
+        height: 100px;
     }
 }

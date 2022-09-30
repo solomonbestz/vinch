@@ -28,9 +28,6 @@
 }
 
 /* Styles for vinch special product */
-#col{
-    width: 300px;
-}
 .box-element{
     box-shadow: hsl(0, 0%, 80%) 0 0 16px;
     background-color: #fff;
@@ -69,6 +66,9 @@
         width: 100%;
         height: 200px;
     }
+    #vinch-container{
+        margin-bottom: 60px;
+    }
 }
 
 
@@ -97,6 +97,9 @@
         width: 100%;
         height: 200px;
     }
+    #vinch-container{
+        margin-bottom: 60px;
+    }
 }
 
 
@@ -121,6 +124,9 @@
     .thumbnail{
         width: 100%;
         height: 100px;
+    }
+    #vinch-container{
+        margin-bottom: 60px;
     }
 }
 
@@ -149,6 +155,9 @@
         width: 100%;
         height: 100px;
     }
+    #vinch-container{
+        margin-bottom: 60px;
+    }
 }
 
 /* Galaxy Smartphones (portrait) ----------- */
@@ -160,5 +169,8 @@
     .thumbnail{
         width: 100%;
         height: 100px;
+    }
+    #vinch-container{
+        margin-bottom: 60px;
     }
 }

@@ -1,4 +1,7 @@
 /* Navbar Styling */
+.nav-link #icon:hover{
+    color: #fff;
+}
 .btn {
     padding: .45rem 1.5rem .35rem;
 }

@@ -1,11 +1,11 @@
 {% extends 'main.html' %}
 {% load static %}
 
-{% block title %}Cart{% endblock title %}Cart
+{% block title %}Cart{% endblock title %}
 
 {% block content %}
 
-<div class="container">                
+<div id= "mobile-container" class="container">                
     <div class="contentbar">                
             <!-- Start row -->
             <div class="row">
@@ -36,7 +36,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
-                                                            <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                            <td><a href="#" class="text-danger"><i class="fas fa-trash"></i></a></td>
                                                             <td><img src="https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_01.svg" class="img-fluid" width="35" alt="product"></td>
                                                             <td>Apple Watch</td>
                                                             <td>
@@ -44,34 +44,8 @@
                                                                     <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="1">
                                                                 </div>
                                                             </td>
-                                                            <td>$10</td>
-                                                            <td class="text-right">$500</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                           <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
-                                                            <td><img src="https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_02.svg" class="img-fluid" width="35" alt="product"></td>
-                                                            <td>Apple iPhone</td>
-                                                            <td>
-                                                                <div class="form-group mb-0">
-                                                                    <input type="number" class="form-control cart-qty" name="cartQty2" id="cartQty2" value="1">
-                                                                </div>
-                                                            </td>
-                                                            <td>$20</td>
-                                                            <td class="text-right">$200</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
-                                                            <td><img src="https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_03.svg" class="img-fluid" width="35" alt="product"></td>
-                                                            <td>Apple iPad</td>
-                                                            <td>
-                                                                <div class="form-group mb-0">
-                                                                    <input type="number" class="form-control cart-qty" name="cartQty3" id="cartQty3" value="1">
-                                                                </div>
-                                                            </td>
-                                                            <td>$30</td>
-                                                            <td class="text-right">$300</td>
+                                                            <td>&#8358;2000</td>
+                                                            <td class="text-right">&#8358;2000</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -86,11 +60,11 @@
                                                                 <div class="input-group">
                                                                     <input type="search" class="form-control" placeholder="Coupon Code" aria-label="Search" aria-describedby="button-addonTags">
                                                                     <div class="input-group-append">
-                                                                        <button class="input-group-text" type="submit" id="button-addonTags">Apply</button>
+                                                                        <button class="input-group-text btn-success" type="submit" id="button-addonTags">Apply</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
+                                                            <div class="form-group my-2">
                                                                 <label for="specialNotes">Special Note for this order:</label>
                                                                 <textarea class="form-control" name="specialNotes" id="specialNotes" rows="3" placeholder="Message here"></textarea>
                                                             </div>
@@ -103,19 +77,19 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td>Sub Total :</td>
-                                                                    <td>$1000.00</td>
+                                                                    <td>&#8358;2000.00</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Shipping :</td>
-                                                                    <td>$0.00</td>
+                                                                    <td>&#8358;2000.00</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Tax(18%) :</td>
-                                                                    <td>$180.00</td>
+                                                                    <td>&#8358;2000.00</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="f-w-7 font-18"><h4>Amount :</h4></td>
-                                                                    <td class="f-w-7 font-18"><h4>$1180.00</h4></td>
+                                                                    <td class="f-w-7 font-18"><h4>&#8358;2000.00</h4></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -124,8 +98,8 @@
                                             </div>
                                         </div>
                                         <div class="cart-footer text-right">
-                                            <button type="button" class="btn btn-info my-1"><i class="ri-save-line mr-2"></i>Update Cart</button>
-                                            <a href="page-checkout.html" class="btn btn-success my-1">Proceed to Checkout<i class="ri-arrow-right-line ml-2"></i></a>
+                                            <button onclick="window.location='/';" class="btn btn-info my-1"><i class="fas fa-cart-plus"></i> Continue Shopping</button>
+                                            <a href=" {% url 'checkout' %} " class="btn btn-success">Proceed to Checkout <i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

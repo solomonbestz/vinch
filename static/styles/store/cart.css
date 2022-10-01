@@ -1,5 +1,5 @@
 .cart-container {
-    margin-top:20px;
+    
     border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 30px;
   }
@@ -7,5 +7,64 @@
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding: 30px 0 20px;
-    margin: 20px 0 30px;
+    /* margin: 20px 0 30px; */
   }
+
+
+  /* Tablets Views */
+@media (min-width: 820px) and (max-width: 920px){
+    
+}
+
+
+/* Ipad Views */
+@media (min-width: 680px) and (max-width: 820px) {
+    
+}
+
+
+/* Medium phone size */
+@media (min-width: 450px) and (max-width: 680px) {
+   
+}
+
+/* Small phone screen */
+@media screen and (max-width: 450px){ 
+    #mobile-container{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .cart-body{
+        font-size: 15px;
+    }
+    .cart-body h4{
+        font-size: 13px;
+    }
+    .cart-body ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        font-size: 11px;
+        color: black;
+        opacity: 1; /* Firefox */
+      }
+    .table-responsive{
+        font-size: 10px;
+    }
+    .table-responsive .cart-qty{
+        width: 30px;
+        height: 20px;
+    }
+
+    .cart-footer button{
+        font-size: 12px;
+        height: 50px;
+    }
+    .cart-footer a{
+        padding-top: 15px;
+        font-size: 12px;
+        height: 50px;
+    }
+}
+
+/* Galaxy Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    
+}

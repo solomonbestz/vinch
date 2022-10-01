@@ -1,0 +1,58 @@
+#checkout-card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+#checkout-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: orange;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+}
+
+.accordion-item{
+    background: #0add08;;
+}
+
+ /* Tablets Views */
+ @media (min-width: 820px) and (max-width: 920px){
+    
+}
+
+
+/* Ipad Views */
+@media (min-width: 680px) and (max-width: 820px) {
+    
+}
+
+
+/* Medium phone size */
+@media (min-width: 450px) and (max-width: 680px) {
+   
+}
+
+/* Small phone screen */
+@media screen and (max-width: 450px){ 
+    #mobile-container-checkout{
+        width: 100%;
+        margin-bottom: 70px;
+    }
+    .accordion-item h2{
+        font-size: 13px;
+    }
+    .accordion-item{
+        font-size: 12px;
+    }
+    #checkout-card{
+        font-size: 12px;
+    }
+}
+
+/* Galaxy Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    
+}

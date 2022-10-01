@@ -11,6 +11,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/store.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/store/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/store/checkout.css' %}">
     <title>{% block title %}{%endblock title %} </title>
 </head>
 <body>
@@ -33,7 +35,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
           <li class="nav-item text-center mx-2 mx-lg-1">
-            <a class="nav-link active" aria-current="page" href="#!">
+            <a class="nav-link active" aria-current="page" href="{% url 'store' %}">
               <div>
                 <i class="fas fa-home fa-lg mb-1"></i>
               </div>
@@ -43,7 +45,7 @@
           <li class="nav-item dropdown text-center mx-2 mx-lg-1">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div>
-                <i class="fas fa-globe fa-lg mb-1"></i>
+                <i id='icon' class="fas fa-globe fa-lg mb-1"></i>
               </div>
               Countries
             </a>
@@ -69,9 +71,9 @@
         <!-- Right links -->
         <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
           <li class="nav-item text-center mx-2 mx-lg-1">
-            <a class="nav-link" href="#!">
+            <a class="nav-link" href="{% url 'cart' %}">
               <div>
-                <i class="fa fa-shopping-cart fa-lg mb-1"></i>
+                <i id='icon' class="fa fa-shopping-cart fa-lg mb-1"></i>
                 <span class="badge rounded-pill badge-notification" id="badge">0</span>
               </div>
               Cart
@@ -80,7 +82,7 @@
           <li class="nav-item text-center mx-2 mx-lg-1">
             <a class="nav-link" href="#!">
               <div>
-                <i class="fas fa-sign-in-alt fa-lg mb-1"></i>
+                <i id='icon' class="fas fa-sign-in-alt fa-lg mb-1"></i>
               </div>
               Login
             </a>
@@ -102,7 +104,7 @@
           <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
         </div>
         <div class="cart">
-          <a href=""><i class="fas fa-shopping-cart fa-lg mb-1"></i></a>
+          <a href="{% url 'cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
           <span class="badge rounded-pill badge-notification" id="badge">0</span>
         </div>
       </div>
@@ -112,7 +114,7 @@
   <!-- Footer Mobile Menu -->
     <div class='mobile-menu'>
       <ul class="d-flex justify-content-center justify-content-md-center">
-        <li><a href=""><i class="fas fa-home fa-lg mb-1"></i></a></li>
+        <li><a href="{% url 'store' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
         <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
         <li><a href=""><i class="fas fa-bell fa-lg mb-1"></i></a></li>
         <li><a href=""><i class="fas fa-globe fa-lg mb-1"></i></a></li>

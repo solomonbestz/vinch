@@ -37,7 +37,7 @@
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td><a href="#" class="text-danger"><i class="fas fa-trash"></i></a></td>
-                                                            <td><img src="https://themesbox.in/admin-templates/olian/html/light-vertical/assets/images/ecommerce/product_01.svg" class="img-fluid" width="35" alt="product"></td>
+                                                            <td><img src="{% static 'img/jollofrice.jpg' %}" class="img-fluid" width="35" alt="product"></td>
                                                             <td>Apple Watch</td>
                                                             <td>
                                                                 <div class="form-group mb-0">
@@ -58,10 +58,11 @@
                                                         <form>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="search" class="form-control" placeholder="Coupon Code" aria-label="Search" aria-describedby="button-addonTags">
+                                                                    <input type="search" class="form-control" placeholder="Coupon Code" aria-label="Search" aria-describedby="button-addonTags" onclick="show()">
                                                                     <div class="input-group-append">
-                                                                        <button class="input-group-text btn-success" type="submit" id="button-addonTags">Apply</button>
+                                                                        <button class="input-group-text btn-success" type="submit" id="button-addonTags" >Apply</button>
                                                                     </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <div class="form-group my-2">

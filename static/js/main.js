@@ -18,9 +18,4 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
-function toggle() {
-   
-    const toggle = document.getElementById('search-click')
-   
-    
-}
+// Function to show search page

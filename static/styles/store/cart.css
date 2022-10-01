@@ -40,6 +40,12 @@
     .cart-body h4{
         font-size: 13px;
     }
+    .cart-body input{
+        height: 32px;
+    }
+    .cart-body .input-group-text{
+        font-size: 12px;
+    }
     .cart-body ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         font-size: 11px;
         color: black;
@@ -49,6 +55,7 @@
         font-size: 10px;
     }
     .table-responsive .cart-qty{
+        font-size: 1px;
         width: 30px;
         height: 20px;
     }

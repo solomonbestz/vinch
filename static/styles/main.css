@@ -126,10 +126,13 @@
 }
 
 
+#container{
+    border:1px solid red;
+    border-radius: .5em;
+    padding:10px;
+  }
 
 /* Mobile Device view */
-
-
 
 /* Tablets Views */
 @media (min-width: 820px) and (max-width: 920px){
@@ -384,6 +387,7 @@
     caret-color: orangered;
     transition: width 0.4s linear;
 }
+
 }
 
 /* Galaxy Smartphones (portrait) ----------- */

@@ -16,3 +16,8 @@ def checkout(request):
     context = {}
     return render(request, 'store/checkout.html', context)
 
+#Product View Function
+def productview(request):
+    context = {}
+    return render(request, 'store/productview.html', context)
+

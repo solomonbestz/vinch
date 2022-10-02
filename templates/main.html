@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static 'styles/store/store.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/cart.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/store/productview.css' %}">
     <title>{% block title %}{%endblock title %} </title>
 </head>
 <body>
@@ -110,8 +111,15 @@
       </div>
     </div>
   </div>
-  <!-- Footer Mobile Menu -->
-    <div class='mobile-menu'>
+
+
+
+
+    <div class="w-100 ">
+      {% block content %}{% endblock content %}
+      <!-- Footer Mobile Menu -->
+  <div class="mobile-footer-container w-100">
+    <div class='mobile-menu w-100'>
       <ul class="d-flex justify-content-center justify-content-md-center">
         <li><a href="{% url 'store' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
         <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
@@ -120,10 +128,7 @@
         <li><a href=""><i class="fas fa-user fa-lg mb-1"></i></a></li>
       </ul>
     </div>
-
-
-    <div class="w-100 p-3">
-      {% block content %}{% endblock content %}
+  </div>
     </div>
 
 

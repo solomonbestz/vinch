@@ -33,6 +33,15 @@
     background-color: #fff;
     border-radius: 4px;
     padding: 10px;
+    margin: 5px;
+}
+
+.box-element h4{
+    display: inline-block; 
+    float: right;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
 }
 
 .thumbnail{
@@ -41,6 +50,10 @@
     -webkit-box-shadow: -1px -3px 5px -2px;
     -moz-box-shadow:  -1px -3px 5px -2px rgba;
     box-shadow: -1px -3px 5px -2px rgba(21)
+}
+.box-element .thumbnail:hover{
+    transition: 2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 /* Tablets Views */

@@ -88,19 +88,20 @@
 .header-mobile-menu{
     display: none;
     position: fixed;
+    top: 0;
     z-index: 2;
 }
 
 /* Mobile Footer Menu Styling */
 .mobile-footer-container{
     display: none;
-    position: relative;
+    position: fixed;
     bottom: 0;
-    border: 2px solid black;
 }
 .mobile-menu{
-    position: fixed;
+    position: absolute;
     display: none;
+    z-index: 20px;
     bottom: 0;
     list-style:none; 
     text-align:center;
@@ -126,6 +127,10 @@
     /* border: 1px solid orange; */
     text-decoration: none;
     background: linear-gradient(to right, rgb(255, 255, 255), rgb(250, 255, 255))
+}
+.mobile-menu li a:hover{
+    color: orange;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 

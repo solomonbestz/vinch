@@ -158,8 +158,10 @@
     .cart-body input{
         height: 32px;
     }
+   
     .cart-body .input-group-text{
         font-size: 12px;
+        
     }
     .cart-body ::placeholder { 
         font-size: 11px;

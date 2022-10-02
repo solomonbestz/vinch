@@ -96,39 +96,40 @@
 </nav>
   <!-- Navbar -->
 
-  <!-- Header Mobile Menu -->
-  <div class="header-mobile-menu">
-    <div class="container h-100">
-      <div class="d-flex justify-content-between h-100">
-        <div class="searchbar">
-          <input class="search_input" type="text" name="" placeholder="Search Store Item">
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-        </div>
-        <div class="cart">
-          <a href="{% url 'cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
-          <span class="badge rounded-pill badge-notification" id="badge">0</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 
 
 
     <div class="w-100 ">
+      <!-- Header Mobile Menu -->
+      <div class="header-mobile-menu">
+        <div class="container h-100">
+          <div class="d-flex justify-content-between h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Search Store Item">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+            <div class="cart">
+              <a href="{% url 'cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
+              <span class="badge rounded-pill badge-notification" id="badge">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
       {% block content %}{% endblock content %}
       <!-- Footer Mobile Menu -->
-  <div class="mobile-footer-container w-100">
-    <div class='mobile-menu w-100'>
-      <ul class="d-flex justify-content-center justify-content-md-center">
-        <li><a href="{% url 'store' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
-        <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
-        <li><a href=""><i class="fas fa-bell fa-lg mb-1"></i></a></li>
-        <li><a href=""><i class="fas fa-globe fa-lg mb-1"></i></a></li>
-        <li><a href=""><i class="fas fa-user fa-lg mb-1"></i></a></li>
-      </ul>
-    </div>
-  </div>
+      <div class="mobile-footer-container w-100">
+        <div class='mobile-menu w-100'>
+          <ul class="d-flex justify-content-center justify-content-md-center">
+            <li><a href="{% url 'store' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
+            <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
+            <li><a href=""><i class="fas fa-bell fa-lg mb-1"></i></a></li>
+            <li><a href=""><i class="fas fa-globe fa-lg mb-1"></i></a></li>
+            <li><a href=""><i class="fas fa-user fa-lg mb-1"></i></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
 

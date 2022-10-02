@@ -69,6 +69,26 @@
     #vinch-container{
         margin-bottom: 60px;
     }
+    .box-element button{
+        display: none;
+    }
+    .box-element a{
+        font-size: 13px;
+        width: 80px;
+        height: 40px;
+    }
+    .box-element h4{
+        display: inline-block; 
+        float: right;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .box-element h6{
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 }
 
 
@@ -100,6 +120,26 @@
     #vinch-container{
         margin-bottom: 60px;
     }
+    .box-element button{
+        display: none;
+    }
+    .box-element a{
+        font-size: 13px;
+        width: 80px;
+        height: 40px;
+    }
+    .box-element h4{
+        display: inline-block; 
+        float: right;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .box-element h6{
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 }
 
 
@@ -128,6 +168,26 @@
     #vinch-container{
         margin-bottom: 60px;
     }
+    .box-element button{
+        display: none;
+    }
+    .box-element a{
+        font-size: 13px;
+        width: 80px;
+        height: 40px;
+    }
+    .box-element h4{
+        display: inline-block; 
+        float: right;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .box-element h6{
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 }
 
 /* Small phone screen */
@@ -153,21 +213,30 @@
     /* Styles for vinch special product */
     .thumbnail{
         width: 100%;
-        height: 100px;
+        height: 80px;
     }
     #vinch-container{
-        margin-bottom: 60px;
+        margin-bottom: 80px;
     }
     .box-element button{
         display: none;
     }
     .box-element a{
         font-size: 13px;
-        width: 100px;
+        width: 80px;
         height: 40px;
     }
     .box-element h4{
-        font-size: 10px;
+        display: inline-block; 
+        float: right;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .box-element h6{
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 5px;
     }
 }
 
@@ -183,5 +252,29 @@
     }
     #vinch-container{
         margin-bottom: 60px;
+    }
+    .product{
+        width: 100%;
+        margin: 2px;
+    }
+    .box-element button{
+        display: none;
+    }
+    .box-element a{
+        font-size: 12px;
+        width: 60px;
+        height: 30px;
+    }
+    .box-element h4{
+        display: inline-block; 
+        float: right;
+        font-weight: bold;
+        font-size: 10px;
+        margin-bottom: 50px;
+    }
+    .box-element h6{
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 5px;
     }
 }

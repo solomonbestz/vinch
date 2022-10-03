@@ -1,5 +1,6 @@
-
-
+.card-title{
+  margin-bottom: 0;
+}
   /* Tablets Views */
   @media (min-width: 820px) and (max-width: 920px){
     

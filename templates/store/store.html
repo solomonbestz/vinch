@@ -9,36 +9,18 @@
             <div class="row mt-5">
                 <h1 class="h1-local-market text-center fw-bold ">Local Market</h1>
                 <div class="owl-carousel owl-theme">
+                  {% for vinchs in vinch_products %} 
                     <div class="item mb-4">
                       <a href="#">
                         <div id="local-card" class="card border-0 shadow">
                               <img src="{% static 'img/jollofrice.jpg'%}" alt="jollof rice" class="card-img-top">
                               <div class="middle">
-                                <div class="text"><button id="btn">Jollof Rice</button></div>
+                                <div class="text"><button id="btn">{{vinchs.name}}</button></div>
                               </div>
                         </div>
                       </a>
-                    </div>
-                    <div class="item mb-4">
-                      <a href="#">
-                        <div id="local-card" class="card border-0 shadow">
-                              <img src="{% static 'img/friedplantain.jpg'%}" alt="jollof rice" class="card-img-top">
-                              <div class="middle">
-                                <div class="text"><button id="btn">Fried Plantain</button></div>
-                              </div>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="item mb-4">
-                      <a href="#">
-                        <div id="local-card" class="card border-0 shadow">
-                              <img src="{% static 'img/meatpie.jpg'%}" alt="jollof rice" class="card-img-top">
-                              <div class="middle">
-                                <div class="text"><button id="btn">Meat Pie</button></div>
-                              </div>
-                        </div>
-                      </a>
-                  </div>
+                    </div> 
+                  {% endfor%}
                 </div>
             </div>
         </div>

@@ -3,4 +3,47 @@
 
 {% block content %}
 
+<section id="productview-container" class="container d-flex align align-items-center justify-content-center">
+    <div class="card my-5" style="max-width: 800px;">
+        <div class="row g-0" style="height: 400px;">
+            <div class="col-md-6 col-6">
+                <img src="{% static 'img/jollofrice.jpg' %}" style="height: 400px;" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6 col-6">
+                <div class="card-body">
+    
+                    <h5 class="card-title fw-bold">Card title would stay here</h5>
+                    <span style="font-size: 14px; margin-bottom: 2px">Category</span>
+                    <hr class="bg-danger border-2 border-top border-success">
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <hr class="bg-danger border-2 border-top border-success">
+                    <span style="font-size: 15px; font-weight: bold;">IMAGES</span>
+                    <div class="row">
+                        <div class="col-md-2 col-2">
+                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                        </div>
+                        <div class="col-md-2 col-2">
+                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                        </div>
+                        <div class="col-md-2 col-2">
+                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                        </div>
+                    </div>
+                    <hr class="bg-danger border-2 border-top border-success">
+                    <div class="d-flex align justify-content-between my-3">
+                        <div>
+                            <button onclick="window.location='/';" class="btn btn-info"><i class="fas fa-cart-plus"></i> Continue Shopping</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-success">Add To Cart</button>
+                        </div>
+                        <div>
+                            <p>&#8358;2000</p>
+                        </div>
+                    </div>
+                   
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}

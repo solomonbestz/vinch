@@ -18,4 +18,5 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
-// Function to show search page
+
+

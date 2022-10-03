@@ -1,8 +1,11 @@
+from unicodedata import category
 from django.shortcuts import render
+from .models import *
 
 # Store function
 def store(request):
-    context = {}
+    vinch_products = Product.objects.filter(category_id= 2)
+    context = {'vinch_products': vinch_products}
     return render(request, 'store/store.html', context)
 
 #Cart function

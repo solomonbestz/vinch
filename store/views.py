@@ -4,6 +4,7 @@ from .models import *
 
 # Store function
 def store(request):
+    local_market = Product.objects.filter(category_id= 1)
     vinch_products = Product.objects.filter(category_id= 2)
     context = {'vinch_products': vinch_products}
     return render(request, 'store/store.html', context)

@@ -10,15 +10,35 @@
             <!-- Start row -->
             <div class="row">
                 <!-- Start col -->
-                <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="col-md-12 col-lg-12 col-xl-12 my-5">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Cart</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row justify-content-center w-100">
+                            <div class="row justify-content-center">
                                 <div class="col-lg-12 col-xl-8">
                                     <div class="cart-container">
+                                        <div class="cart-body">
+                                            <div class="row">
+                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7">
+                                                    <div class="order-total table-responsive ">
+                                                        <table class="table table-borderless text-right">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="f-w-7 font-18"><h4><strong>Amount:</strong></h4></td>
+                                                                    <td class="f-w-7 font-18"><h4><strong>&#8358;{{order.get_cart_total|floatformat:2}}</strong></h4></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="f-w-7 font-18"><h4><strong>Items:</strong></h4></td>
+                                                                    <td class="f-w-7 font-18"><h4><strong>{{order.get_cart_items}}</strong></h4></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="cart-head">
                                             <div class="table-responsive">
                                                 <table class="table table-borderless">
@@ -42,10 +62,10 @@
                                                             <td>{{item.product.name}}</td>
                                                             <td>
                                                                 <div class="form-group mb-0">
-                                                                    <input readonly type="text" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="{{item.quantity}}">
+                                                                    <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="{{item.quantity}}">
                                                                 </div>
                                                             </td>
-                                                            <td>&#8358;{{item.product.price}}</td>
+                                                            <td>&#8358;{{item.product.price|floatformat:2}}</td>
                                                             <td class="text-right"><strong>&#8358;{{item.get_total}}</strong></td>
                                                         </tr>
                                                         {% endfor %}
@@ -53,22 +73,7 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="cart-body">
-                                            <div class="row">
-                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7">
-                                                    <div class="order-total table-responsive ">
-                                                        <table class="table table-borderless text-right">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="f-w-7 font-18"><h4><strong>Amount:</strong></h4></td>
-                                                                    <td class="f-w-7 font-18"><h4><strong>&#8358;{{order.get_cart_total}}</strong></h4></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="cart-footer text-right">
                                             <button onclick="window.location='/';" class="btn btn-info my-1"><i class="fas fa-cart-plus"></i> Continue Shopping</button>
                                             <a href=" {% url 'checkout' %} " class="btn btn-success">Proceed to Checkout <i class="fas fa-arrow-right"></i></a>

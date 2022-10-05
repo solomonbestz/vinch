@@ -11,13 +11,13 @@
             <div class="row">
                 <!-- Start col -->
                 <div class="col-md-12 col-lg-12 col-xl-12">
-                    <div class="card m-b-30">
+                    <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Cart</h5>
                         </div>
                         <div class="card-body">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-10 col-xl-8">
+                            <div class="row justify-content-center w-100">
+                                <div class="col-lg-12 col-xl-8">
                                     <div class="cart-container">
                                         <div class="cart-head">
                                             <div class="table-responsive">
@@ -42,11 +42,11 @@
                                                             <td>{{item.product.name}}</td>
                                                             <td>
                                                                 <div class="form-group mb-0">
-                                                                    <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="1">
+                                                                    <input readonly type="text" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="{{item.quantity}}">
                                                                 </div>
                                                             </td>
                                                             <td>&#8358;{{item.product.price}}</td>
-                                                            <td class="text-right">&#8358;2000</td>
+                                                            <td class="text-right"><strong>&#8358;{{item.get_total}}</strong></td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>
@@ -55,35 +55,13 @@
                                         </div>
                                         <div class="cart-body">
                                             <div class="row">
-                                                <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
-                                                    <div class="order-note">
-                                                        <form>
-                                                            <div class="form-group my-2">
-                                                                <label for="specialNotes">Special Note for this order:</label>
-                                                                <textarea class="form-control" name="specialNotes" id="specialNotes" rows="3" placeholder="Message here"></textarea>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7">
                                                     <div class="order-total table-responsive ">
                                                         <table class="table table-borderless text-right">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>Sub Total :</td>
-                                                                    <td>&#8358;2000.00</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Shipping :</td>
-                                                                    <td>&#8358;2000.00</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tax(18%) :</td>
-                                                                    <td>&#8358;2000.00</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="f-w-7 font-18"><h4>Amount :</h4></td>
-                                                                    <td class="f-w-7 font-18"><h4>&#8358;2000.00</h4></td>
+                                                                    <td class="f-w-7 font-18"><h4><strong>Amount:</strong></h4></td>
+                                                                    <td class="f-w-7 font-18"><h4><strong>&#8358;{{order.get_cart_total}}</strong></h4></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>

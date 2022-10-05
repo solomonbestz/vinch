@@ -1,7 +1,7 @@
 .cart-container {
-    
+    width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 30px;
+    padding: 20px;
   }
   .cart-container .cart-body {
     border-top: 1px solid rgba(0, 0, 0, 0.05);

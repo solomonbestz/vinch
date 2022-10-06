@@ -10,6 +10,10 @@
     /* margin: 20px 0 30px; */
   }
 
+.quantity{
+    margin-bottom: 5px;
+  }
+
 
   /* Tablets Views */
 @media (min-width: 820px) and (max-width: 920px){

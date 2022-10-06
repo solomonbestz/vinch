@@ -60,9 +60,15 @@
                                                             <td><a href="#" class="text-danger"><i class="fas fa-trash"></i></a></td>
                                                             <td><img src="{{item.product.image.url}}" class="img-fluid" width="35" alt="product"></td>
                                                             <td>{{item.product.name}}</td>
-                                                            <td>
-                                                                <div class="form-group mb-0">
-                                                                    <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="{{item.quantity}}">
+                                                            <td class="quantity">
+                                                                <div class="row">
+                                                                    <p class="col-md-4">{{item.quantity}}</p>
+                                                                    <div class=" col-md-4">
+                                                                        <i class="fas fa-arrow-up fa-xs"></i>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <i class="fas fa-arrow-down fa-xs"></i>
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                             <td>&#8358;{{item.product.price|floatformat:2}}</td>

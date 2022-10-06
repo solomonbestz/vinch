@@ -14,8 +14,25 @@
     <link rel="stylesheet" href="{% static 'styles/store/cart.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/checkout.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/productview.css' %}">
-    <script>
+    <script type='text/javascript'>
       var user = '{{request.user}}'
+
+      function getToken(name){
+        var cookieValue = null;
+        if(document.cookie && document.cookie !== ''){
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++){
+            var cookie = cookies[i].trim();
+            //Does this cookie string begin with the name we want?
+            if(cookie.substring(0, name.length + 1) === (name + '=')){
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      var csrftoken = getToken('csrftoken');
     </script>
     <title>{% block title %}{%endblock title %} </title>
 </head>
@@ -78,7 +95,7 @@
             <a class="nav-link" href="{% url 'cart' %}">
               <div>
                 <i id='icon' class="fa fa-shopping-cart fa-lg mb-1"></i>
-                <span class="badge rounded-pill badge-notification" id="badge">0 </span>
+                <span class="badge rounded-pill badge-notification" id="badge">{{qty}}</span>
               </div>
               Cart
             </a>
@@ -115,7 +132,7 @@
             </div>
             <div class="cart">
               <a href="{% url 'cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
-              <span class="badge rounded-pill badge-notification" id="badge">0</span>
+              <span class="badge rounded-pill badge-notification" id="badge">{{qty}}</span>
             </div>
           </div>
         </div>

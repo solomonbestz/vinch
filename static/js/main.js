@@ -20,4 +20,10 @@ $('.owl-carousel').owlCarousel({
 })
 
 
+function country(){
+    const uk = document.getElementById("uk")
+    uk.img
+}
+
+
 

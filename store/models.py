@@ -24,7 +24,7 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200)  
-    category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, related_name='product_category', on_delete=models.CASCADE, null=True)
     slug = models.SlugField(max_length=255, unique=True, null=True)
     description = models.TextField(blank=True)
     in_stock = models.BooleanField(default=True)

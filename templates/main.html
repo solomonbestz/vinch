@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{% static 'styles/store/cart.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/checkout.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/productview.css' %}">
+    <script>
+      var user = '{{request.user}}'
+    </script>
     <title>{% block title %}{%endblock title %} </title>
 </head>
 <body>
@@ -142,6 +145,7 @@
 
      <!--Main Application Javascript-->
      <script src="{% static 'js/main.js' %}"></script>
+     <script src="{% static 'js/cart.js' %}"></script>
 
 </body>
 </html>

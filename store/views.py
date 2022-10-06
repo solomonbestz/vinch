@@ -1,5 +1,6 @@
-from unicodedata import category
 from django.shortcuts import render
+from django.http import JsonResponse
+
 from .models import *
 
 # Store function
@@ -41,4 +42,7 @@ def checkout(request):
 def productview(request):
     context = {}
     return render(request, 'store/productview.html', context)
+
+def updateItem(request):
+    return JsonResponse('Item was added', safe=False)
 

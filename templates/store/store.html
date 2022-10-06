@@ -35,7 +35,7 @@
               <img src="{{vinchs.image.url}}" class="thumbnail" alt="...">
               <h6><strong>{{vinchs.name}}</strong></h6>
               <hr>
-              <button class="btn btn-outline-secondary add-btn text-center">Add to Cart</button>
+              <button data-product="{{vinchs.id}}" data-action="add" class="btn btn-outline-secondary add-btn text-center update-cart">Add to Cart</button>
               <a class="btn btn-outline-success" href="{% url 'productview'%}">View</a>
               <h4>&#8358;{{vinchs.price}}</h4>
             </div>

@@ -28,7 +28,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td class="f-w-7 font-18"><h4><strong>Amount:</strong></h4></td>
-                                                                    <td class="f-w-7 font-18"><h4><strong>&#8358;{{cart_total|floatformat:2|intcomma}}</strong></h4></td>
+                                                                    <td class="f-w-7 font-18"><h4><strong>&#8358;{{cart_total|intcomma}}</strong></h4></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="f-w-7 font-18"><h4><strong>Items:</strong></h4></td>
@@ -72,8 +72,8 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-                                                            <td>&#8358;{{item.product.price|floatformat:2|intcomma}}</td>
-                                                            <td class="text-right"><strong>&#8358;{{item.get_total|floatformat:2|intcomma}}</strong></td>
+                                                            <td>&#8358;{{item.product.price|intcomma}}</td>
+                                                            <td class="text-right"><strong>&#8358;{{item.get_total|intcomma}}</strong></td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>

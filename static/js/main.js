@@ -20,10 +20,13 @@ $('.owl-carousel').owlCarousel({
 })
 
 
-function country(){
-    const uk = document.getElementById("uk")
-    uk.img
-}
+var form = document.getElementById('form')
+  form.addEventListener('submit', function(e){
+    e.preventDefault()
+    console.log("form submitted.....")
+    document.getElementById('form-button').classList.add("hidden");
+    document.getElementById('payment-info').classList.remove("hidden")
+  })
 
 
 

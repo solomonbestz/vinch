@@ -28,7 +28,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True, null=True)
     description = models.TextField(blank=True)
     in_stock = models.BooleanField(default=True)
-    price = models.FloatField()
+    price = models.IntegerField()
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
@@ -43,6 +43,12 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    @property
+    def shipping(self):
+        shipping = True
+        return shipping
+        
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)

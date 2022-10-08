@@ -20,26 +20,17 @@
                 <div class="col">
                   <div class="form-outline">
                     <input type="text" id="form11Example1" class="form-control" />
-                    <label class="form-label" for="form11Example1">First name</label>
+                    <label class="form-label" for="form11Example1">Address</label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-outline">
                     <input type="text" id="form11Example2" class="form-control" />
-                    <label class="form-label" for="form11Example2">Last name</label>
+                    <label class="form-label" for="form11Example2">City</label>
                   </div>
                 </div>
               </div>
-              <!-- Text input -->
-              <div class="form-outline mb-4">
-                <input type="text" id="form11Example3" class="form-control" />
-                <label class="form-label" for="form11Example3">Address</label>
-              </div>
-              <!-- Text input -->
-              <div class="form-outline mb-4">
-                <input type="text" id="form11Example4" class="form-control" />
-                <label class="form-label" for="form11Example4">City</label>
-              </div>
+            
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <input type="text" id="form11Example5" class="form-control" />
@@ -51,7 +42,7 @@
                 <label class="form-label" for="form11Example6">Zipcode</label>
               </div>
               <div class="text-center">
-                <button id="form-button" type="submit" class="btn button-order col-md-10">Continue</button>
+                <button id="form-button" type="submit" class="btn btn-success col-md-10">Continue</button>
               </div>
             </form>
           </div>
@@ -61,7 +52,7 @@
         <div class="card mb-4">
           <div class="card-header py-3">
             <h5 class="mb-0 text-font">{{order.get_cart_items}} item(s) <span class="float-end"
-                style="font-size: 13px ;"><button onclick="window.location='cart';" class="btn btn-outline-success">Edit</button></span></h5>
+                style="font-size: 13px ;"><button onclick="window.location='/cart';" class="btn btn-outline-success">Edit</button></span></h5>
           </div>
           <div class="card-body">
             {% for item in items %}
@@ -109,7 +100,7 @@
                   <label class="form-label" for="form1">Email Address</label>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-outline-dark float-end button-color "
+                <button type="button" id="make-payment" class="btn btn-outline-dark float-end button-color "
                   data-mdb-ripple-color="dark">
                   Send
                 </button>

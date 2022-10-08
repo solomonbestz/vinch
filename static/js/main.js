@@ -19,6 +19,9 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
+document.getElementById('make-payment').addEventListener('click', function(e){
+    submitFormData()
+})
 
 var form = document.getElementById('form')
   form.addEventListener('submit', function(e){
@@ -28,5 +31,8 @@ var form = document.getElementById('form')
     document.getElementById('payment-info').classList.remove("hidden")
   })
 
+function submitFormData(){
+    console.log('Payment Button Clicked')
+}
 
 

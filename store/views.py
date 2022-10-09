@@ -4,6 +4,8 @@ from django.http import JsonResponse
 import json
 import datetime
 
+from django.template import RequestContext
+
 from .models import *
 
 # Store function
@@ -74,6 +76,8 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
     
 def processOrder(request):
+    # global_var = RequestContext(request).get("app_config")
+   
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
 
@@ -83,8 +87,9 @@ def processOrder(request):
         total = int(data['shipping']['total'])
         order.transaction_id = transaction_id
 
+        # cart_total = global_var.get("cart_total")
         print(type(total))
-        print(type(order.get_cart_total))
+        # print(cart_total)
         if total == order.get_cart_total:
             print("I came here")
             order.complete = True

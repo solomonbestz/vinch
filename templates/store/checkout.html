@@ -19,13 +19,13 @@
               <div class="row mb-4">
                 <div class="col">
                   <div class="form-outline">
-                    <input type="text" id="form11Example1" class="form-control" />
+                    <input type="text" id="form11Example1" name="address" class="form-control" />
                     <label class="form-label" for="form11Example1">Address</label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-outline">
-                    <input type="text" id="form11Example2" class="form-control" />
+                    <input type="text" id="form11Example2" name="city" class="form-control" />
                     <label class="form-label" for="form11Example2">City</label>
                   </div>
                 </div>
@@ -33,12 +33,12 @@
             
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="text" id="form11Example5" class="form-control" />
+                <input type="text" id="form11Example5" name="state" class="form-control" />
                 <label class="form-label" for="form11Example5">State</label>
               </div>
               <!-- Number input -->
               <div class="form-outline mb-4">
-                <input type="number" id="form11Example6" class="form-control" />
+                <input type="number" id="form11Example6" name="zipcode" class="form-control" />
                 <label class="form-label" for="form11Example6">Zipcode</label>
               </div>
               <div class="text-center">
@@ -112,4 +112,59 @@
     </div>
   </section>
 </div>
+
+
+<script type="text/javascript">
+  var shipping = '{{order.shipping}}'
+  var total = '{{order.get_cart_total}}'
+
+  document.getElementById('make-payment').addEventListener('click', function(e){
+    submitFormData()
+  })
+
+var form = document.getElementById('form')
+  form.addEventListener('submit', function(e){
+    e.preventDefault()
+    console.log("form submitted.....")
+    document.getElementById('form-button').classList.add("hidden");
+    document.getElementById('payment-info').classList.remove("hidden")
+  })
+
+function submitFormData(){
+  console.log('Payment Button Clicked')
+
+  var shippingInfo = {
+      'address': null,
+      'city': null,
+      'state': null,
+      'zipcode': null,
+      'total': total,
+  }
+  if(shipping == "True"){
+      shippingInfo.address = form.address.value
+      shippingInfo.city = form.city.value
+      shippingInfo.state = form.state.value
+      shippingInfo.zipcode = form.zipcode.value
+  }
+  console.log('Shipping Info:', shippingInfo)
+
+  var url = '/process_order/'
+
+  fetch(url, {
+      method: 'POST',
+      headers: {
+          'Content-Type':'application/json',
+          'X-CSRFToken': csrftoken,
+      },
+      body:JSON.stringify({'shipping':shippingInfo}),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      console.log('Success:', data);
+      alert('Transaction completed');
+      window.location.href = "{% url 'store' %}"
+  })
+}
+
+ </script>
 {% endblock content %}

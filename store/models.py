@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -15,9 +14,9 @@ class Category(models.Model):
         return self.name 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
@@ -49,6 +48,17 @@ class Order(models.Model):
         shipping = True
         return shipping
         
+    @property
+    def get_cart_total(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.get_total for item in orderitems])
+        return total
+
+    @property
+    def get_cart_items(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)

@@ -5,7 +5,7 @@ def total_cart_items(request):
     if request.user.is_authenticated:
         customer = request.user.customer
 
-        order = Order.objects.get(customer=customer, complete=False)
+        order = Order.objects.get(customer=customer)
 
         if order:
             orderitems = OrderItem.objects.filter(order=order)
@@ -14,6 +14,7 @@ def total_cart_items(request):
         else:
             qty = 0
     else:
+        cart_total = 0
         qty = 0
     return {'qty': qty, 'cart_total': cart_total}
 

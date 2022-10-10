@@ -75,9 +75,7 @@ def updateItem(request):
 
     return JsonResponse('Item was added', safe=False)
     
-def processOrder(request):
-    # global_var = RequestContext(request).get("app_config")
-   
+def processOrder(request):  
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
 
@@ -87,11 +85,7 @@ def processOrder(request):
         total = int(data['shipping']['total'])
         order.transaction_id = transaction_id
 
-        # cart_total = global_var.get("cart_total")
-        print(type(total))
-        # print(cart_total)
         if total == order.get_cart_total:
-            print("I came here")
             order.complete = True
         order.save()
         

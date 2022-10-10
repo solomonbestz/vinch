@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'styles/store/cart.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/checkout.css' %}">
     <link rel="stylesheet" href="{% static 'styles/store/productview.css' %}">
+
     <script type='text/javascript'>
       var user = '{{request.user}}'
       function getToken(name){
@@ -33,9 +34,41 @@
         return cookieValue;
       }
       var csrftoken = getToken('csrftoken');
+
+      function getCookie(name){
+        // Split cookie string and get all individual name=value pairs in an array
+        var cookieArr = document.cookie.split(";");
+    
+        // Loop through the array elements
+        for(var i = 0; i < cookieArr.length; i++){
+            var cookiePair = cookieArr[i].split("=");
+    
+            /* Removing whitespace at the beginning of the cookie name and compare it with the given string */
+            if(name == cookiePair[0].trim()){
+                // Decode the cookie value and return
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+    
+        // Return null if not found
+        return null;
+    }
+    
+    var cart = JSON.parse(getCookie('cart'))
+    if (cart == undefined){
+        cart = {}
+        console.log('Cart Created', cart)
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
+    console.log('Cart:', cart)
+
     </script>
+    
     <title>{% block title %}{%endblock title %} </title>
 </head>
+
+
+
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
@@ -95,7 +128,7 @@
             <a class="nav-link" href="{% url 'cart' %}">
               <div>
                 <i id='icon' class="fa fa-shopping-cart fa-lg mb-1"></i>
-                <span class="badge rounded-pill badge-notification" id="badge">{{qty}}</span>
+                <span class="badge rounded-pill badge-notification cart-qty" id="badge">{{qty}}</span>
               </div>
               Cart
             </a>

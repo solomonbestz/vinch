@@ -1,10 +1,8 @@
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import JsonResponse
 import json
 import datetime
-
-from django.template import RequestContext
 
 from .models import *
 
@@ -17,36 +15,18 @@ def store(request):
 
 #Cart function
 def cart(request):
-
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
-
-    context = {'items': items, 'order': order}
-    return render(request, 'store/cart.html', context)
+    return render(request, 'store/cart.html')
 
 
 #Checkout function
 def checkout(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
-
-    context = {'items': items, 'order': order}
-    return render(request, 'store/checkout.html', context)
+    if request.user.is_authenticated == False:
+        return redirect('store')
+    return render(request, 'store/checkout.html')
 
 #Product View Function
 def productview(request):
-    context = {}
-    return render(request, 'store/productview.html', context)
+    return render(request, 'store/productview.html')
 
 def updateItem(request):
     data = json.loads(request.body)

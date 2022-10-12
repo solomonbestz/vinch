@@ -21,7 +21,7 @@ def cart(request):
 #Checkout function
 def checkout(request):
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = request.newuser.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
     else:

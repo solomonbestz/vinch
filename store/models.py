@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from account.models import NewUser
 
 # Create your models here.
 # Create your models here. 
@@ -14,7 +14,7 @@ class Category(models.Model):
         return self.name 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(NewUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
 

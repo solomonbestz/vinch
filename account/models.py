@@ -1,8 +1,14 @@
+import imp
+import django
 from django.core.validators import RegexValidator
 from django.db import models
+from django.dispatch import Signal
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
+
+
+user_created = Signal()
 
 # Custom Account Manager class inherenting from baseuser
 class CustomAccountManager(BaseUserManager):
@@ -68,6 +74,9 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.last_name
+
+    # def send_user(self):
+    #     user_created.send(sender=self.__class__)
 
 class Phone(models.Model):
     user = models.OneToOneField(NewUser, blank=True, on_delete=models.CASCADE, null=True)

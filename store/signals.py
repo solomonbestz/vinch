@@ -3,11 +3,10 @@ from account.models import NewUser
 from django.dispatch import receiver
 from .models import Customer
 
-@receiver(post_save, sender = NewUser)
-def create_profile(sender, instance, created, **kwargs):
-    if created:
-        Customer.objects.create(user=instance)
+@receiver(post_save, sender=NewUser)
+def create_customer(sender, instance, created, **kwargs):
+    print("I created New User")
 
-
-def save_profile(sender, instance, **kwargs):
-    instance.profile.save()
+@receiver(post_save, sender=NewUser)
+def save_customer(sender, instance, **kwargs):
+    print("customer saved")

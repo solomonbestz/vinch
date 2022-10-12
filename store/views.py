@@ -20,9 +20,15 @@ def cart(request):
 
 #Checkout function
 def checkout(request):
-    if request.user.is_authenticated == False:
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
         return redirect('store')
-    return render(request, 'store/checkout.html')
+
+    context = {'items': items, 'order': order}
+    return render(request, 'store/checkout.html', context)
 
 #Product View Function
 def productview(request):
@@ -30,8 +36,6 @@ def productview(request):
 
 def updateItem(request):
     data = json.loads(request.body)
-    cart = json.loads(request.COOKIES['cart'])
-    print(cart)
     productId = data['productId']
     action = data['action']
 

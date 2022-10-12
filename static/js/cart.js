@@ -10,7 +10,6 @@ for(var i = 0; i < updateBtns.length; i++){
         console.log('USER:', user)
         if(user == 'AnonymousUser'){
             addCookieItem(productId, action)
-            location.reload()
         }else{
             updateUserOrder(productId, action)
         }
@@ -58,6 +57,7 @@ function updateUserOrder(productId, action){
     })
     .then((data) => {
         console.log('Data: ', data)
+        location.reload()
     })
 }
 

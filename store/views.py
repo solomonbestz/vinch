@@ -30,6 +30,8 @@ def productview(request):
 
 def updateItem(request):
     data = json.loads(request.body)
+    cart = json.loads(request.COOKIES['cart'])
+    print(cart)
     productId = data['productId']
     action = data['action']
 

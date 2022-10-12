@@ -24,30 +24,24 @@ def total_cart_items(request):
         cart_total = 0
         items = []
         for i in cart:
-            qty += cart[i]['quantity']
-            product = Product.objects.get(id=i)
-            cart_total += (product.price * cart[i]['quantity'])
+            try:
+                qty += cart[i]['quantity']
+                product = Product.objects.get(id=i)
+                cart_total += (product.price * cart[i]['quantity'])
 
-            item = {
-                'product': {
-                    'id': product.id,
-                    'name': product.name,
-                    'price': product.price,
-                    'image': product.image,
-                },
-                'quantity': cart[i]['quantity'],
-                'get_total': (product.price * cart[i]['quantity'])
-            }
-            items.append(item)
-            print(item['product']['id'])
+                item = {
+                    'product': {
+                        'id': product.id,
+                        'name': product.name,
+                        'price': product.price,
+                        'image': product.image,
+                    },
+                    'quantity': cart[i]['quantity'],
+                    'get_total': (product.price * cart[i]['quantity'])
+                }
+                items.append(item)
+            except:
+                pass
 
     return {'qty': qty, 'cart_total': cart_total, 'items': items}
 
-# def get_cart_total(request):
-#     if request.user.is_authenticated:
-#         customer = request.user.customer
-#         order = Order.objects.get(customer=customer, complete=False)
-
-#         orderitems = order.orderitem_set.all()
-#         cart_total = sum([item.get_total for item in orderitems])
-#     return {'cart_total': cart_total}

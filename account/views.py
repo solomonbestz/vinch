@@ -10,13 +10,12 @@ app_name = "account"
 auth = BackEndSetting()
 
 def signin(request):
-    return render(request, "account/login.html")
+    return render(request, "account/authentication.html")
 
 def signout(request):
     logout(request)
-    return redirect('signin')
+    return redirect('store')
 
-def register(request):
-     return render(request, "account/login.html")
+
 
 

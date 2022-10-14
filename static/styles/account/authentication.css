@@ -1,0 +1,25 @@
+
+.nav .nav-item .nav-link:hover{
+    background: orange;
+}
+
+
+.nav .nav-item .nav-link.active{
+    background: green;
+}
+
+#login-btn{
+    background: green;
+    color: white;
+    border: 1px solid green
+}
+
+.btn{
+    background: orange;
+    color: green;
+}
+
+.btn:hover{
+    color: orange
+}
+

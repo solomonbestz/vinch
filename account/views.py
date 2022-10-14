@@ -9,7 +9,7 @@ app_name = "account"
 
 auth = BackEndSetting()
 
-def signin(request):
+def authentication(request):
     return render(request, "account/authentication.html")
 
 def signout(request):

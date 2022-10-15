@@ -133,22 +133,44 @@
               Cart
             </a>
           </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div>
+                  <i id='icon' class="fa fa-user-check fa-lg mb-1"></i>
+                 </div>
+                 Hi, {{last_name}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px;  color: green" ></i>My Account</a></li>
+              <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
+                <li><hr class="dropdown-divider"></li> 
+                <li><a class="dropdown-item" href="{% url 'signout' %}"><i id='icon' class="fas fa-sign-out-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+          <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div>
+               <i id='icon' class="fa fa-user-times fa-lg mb-1"></i>
+              </div>
+              {{last_name}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'authentication' %}"><i id='icon' class="fa fa-sign-in-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px; color: green" ></i>My Account</a></li>
+              <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
+            </ul>
+          </li>
+          {% endif %}
           <li class="nav-item text-center mx-2 mx-lg-1">
-            {% if user.is_authenticated %}
-            <a class="nav-link" href="{% url 'signout' %}">
+            <a class="nav-link" href="{% url 'cart' %}">
               <div>
-                <i id='icon' class="fas fa-sign-out-alt fa-lg mb-1"></i>
+                <i id='icon' class="fa fa-question-circle fa-lg mb-1"></i>
               </div>
-              Logout
+              Help
             </a>
-            {%elif user.is_authenticated == False%}
-            <a class="nav-link" href="{% url 'authentication' %}">
-              <div>
-                <i id='icon' class="fas fa-sign-in-alt fa-lg mb-1"></i>
-              </div>
-              Login
-            </a>
-            {% endif %}
           </li>
         </ul>
         <!-- Right links -->
@@ -157,7 +179,6 @@
     </div> 
 </nav>
   <!-- Navbar -->
-
   
 
 

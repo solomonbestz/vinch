@@ -11,12 +11,14 @@ auth = BackEndSetting()
 
 def authentication(request):
     if request.method == "POST":
-        first_name = request.POST.get("")
-        last_name = request.POST.get("")
-        middle_name = request.POST.get("")
-        email = request.POST.get("")
-        password1 = request.POST.get("")
-        password2 = request.POST.get("")
+        first_name = request.POST.get("f-name")
+        last_name = request.POST.get("l-name")
+        middle_name = request.POST.get("m-name")
+        email = request.POST.get("email")
+        password1 = request.POST.get("f-password")
+        password2 = request.POST.get("s-password")
+
+        print(f"{first_name} {last_name} {password1} {password2}")
     
     if request.method == "POST":
         email = request.POST.get("email")
@@ -34,7 +36,7 @@ def authentication(request):
                 return redirect("404")
         else:
             messages.error(request, "Incorrect Login Details")
-            return redirect('signin')  
+            return redirect('authentication')  
     else:
         pass
     return render(request, "account/authentication.html")

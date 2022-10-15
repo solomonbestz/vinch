@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{% static 'styles/store/productview.css' %}">
 
     <script type='text/javascript'>
+      
       var user = '{{request.user}}'
       function getToken(name){
         var cookieValue = null;
@@ -62,6 +63,13 @@
     }
     console.log('Cart:', cart)
 
+  
+  function clearcart(){
+      console.log("Cart cleared") 
+      cart = {}
+      document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+  }
+
     </script>
     
     <title>{% block title %}{%endblock title %} </title>
@@ -70,6 +78,53 @@
 
 
 <body>
+  <div class="modal fade" id="myMessage" tabindex="-1" aria-labelledby="myMessageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title w-100" id="myMessageLabel" style="font-family: 'Trocchi'; font-size:15px; color:green; font-weight: bolder;">MESSAGE FROM BESTZ</h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == "success" %}
+                        <div class="modal-body">
+                            <div class="text-center text-success mt-3">
+                                <i class="fa fa-check-circle" style="font-size:50px;color:green"></i>
+                            </div>
+                            <br>
+                            <div class="mb-3 text-center">
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function(){
+                                    $('#myMessage').modal('show');
+                                    });
+                                </script>
+                                <b>{{message}}</b>
+                            </div>
+                        </div>
+                    {% elif message.tags == "error"%}
+                    <div class="modal-body">
+                        <div class="text-center text-success mt-3">
+                            <i class="fa fa-times-circle" style="font-size:50px;color:red"></i>
+                        </div>
+                        <br>
+                        <div class="mb-3 text-center">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <script>
+                                $(document).ready(function(){
+                                $('#myMessage').modal('show');
+                                });
+                            </script>
+                            <strong>{{message}}</strong>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
     <!-- Container wrapper -->
@@ -145,7 +200,7 @@
                 <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px;  color: green" ></i>My Account</a></li>
               <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
                 <li><hr class="dropdown-divider"></li> 
-                <li><a class="dropdown-item" href="{% url 'signout' %}"><i id='icon' class="fas fa-sign-out-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Logout</a></li>
+                <li><a class="dropdown-item" id="clear-cart" href="{% url 'signout' %}"><i id='icon' class="fas fa-sign-out-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Logout</a></li>
               </ul>
             </li>
           {% else %}

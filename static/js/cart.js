@@ -1,5 +1,8 @@
 var updateBtns = document.getElementsByClassName('update-cart')
 
+document.getElementById('clear-cart').addEventListener('click', function(e){
+    clearcart()
+  })
 
 for(var i = 0; i < updateBtns.length; i++){
     updateBtns[i].addEventListener('click', function(){

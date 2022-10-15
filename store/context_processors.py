@@ -7,6 +7,7 @@ def total_cart_items(request):
         customer = request.user.customer
 
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        
         items = order.orderitem_set.all()
         if order:
             orderitems = OrderItem.objects.filter(order=order)

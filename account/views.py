@@ -3,6 +3,7 @@ from django.contrib.auth import login, logout
 from django.contrib import messages
 from account.auth import BackEndSetting
 from .models import NewUser
+import json
 
 # Create your views here.
 app_name = "account"
@@ -38,6 +39,7 @@ def authentication(request):
                 return redirect('authentication')
     
         elif request.POST.get('submit') == 'Sign in':
+            
             print("entered login")
             email = request.POST.get("email")
             password = request.POST.get("password")

@@ -73,9 +73,8 @@
                             <a href="#!">Forgot password?</a>
                         </div>
                     </div>
-            
                     <!-- Submit button -->
-                    <button type="submit" id="login-btn" class="btn btn-primary btn-block mb-4 w-100">Sign in</button>
+                    <button type="submit" name="submit" id="login-btn" class="btn btn-primary btn-block mb-4 w-100" value='Sign in'>Sign in</button>
                 </form>
             </div>
             <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
@@ -102,7 +101,7 @@
             
                     <p class="text-center">or:</p>
             
-                    <div class="row" style="padding-left: 10px; padding-right: 10px">
+                    <div class="row" style="padding-left: 10px; padding-right: 10px;">
                         <!-- Name input -->
                         <div class="form-outline mb-4 col-md-6">
                             <input type="text" name="f-name" id="registerName" class="form-control" />
@@ -111,13 +110,13 @@
                 
                         <!-- Username input -->
                         <div class="form-outline mb-4 col-md-6">
-                            <input type="text" name="l-name" id="registerUsername" class="form-control" />
+                            <input type="text" name="l-name" id="registerName" class="form-control" />
                             <label class="form-label" for="registerUsername">Last-Name</label>
                         </div>
                         
                         <!-- Username input -->
                         <div class="form-outline mb-4 col-md-6">
-                            <input type="text" name="m-name" id="registerUsername" class="form-control" />
+                            <input type="text" name="m-name" id="registerName" class="form-control" />
                             <label class="form-label" for="registerUsername">Middle-Name</label>
                         </div>
                 
@@ -138,19 +137,20 @@
                             <input type="password" name="s-password" id="registerRepeatPassword" class="form-control" />
                             <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                         </div>
-                    </div>
-                    <!-- Checkbox -->
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
-                            aria-describedby="registerCheckHelpText" />
-                        <label class="form-check-label" for="registerCheck">
-                            I have read and agree to the terms
-                        </label>
+
+                         <!-- Checkbox -->
+                        <div class="form-outline col-md-12">
+                            <select class="form-control" name="gender" id="exampleFormControlSelect1">
+                                <option>M</option>
+                                <option>F</option>
+                            </select>
+                            <label for="exampleFormControlSelect1">Gender</label>
+                        </div>
                     </div>
                     
                     <!-- Submit button -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" id="login-btn" class="btn btn-primary btn-block mb-3 w-50">Register</button>
+                        <button type="submit" name="submit" id="login-btn" class="btn btn-primary btn-block mb-3 w-50" value='Register'>Register</button>
                     </div>
                 </form>
             </div>

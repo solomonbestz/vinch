@@ -25,7 +25,7 @@ def checkout(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
     else:
-        return redirect('signin')
+        return redirect('authentication')
 
     context = {'items': items, 'order': order}
     return render(request, 'store/checkout.html', context)

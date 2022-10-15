@@ -18,23 +18,25 @@ def authentication(request):
         password1 = request.POST.get("")
         password2 = request.POST.get("")
     
-    elif request.method == "POST":
-        email = request.POST.get("")
-        password = request.POST.get("")
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
         user = auth.authenticate(request, email=email, password=password)
         if user is not None and user.is_staff == False:
             login(request, user)
             if user.is_active == True:
                 messages.success(request, "Successfully logged In.")
+                print("User is logged in")
                 return redirect("store")
             else:
+                print("User is not active")
                 return redirect("404")
         else:
             messages.error(request, "Incorrect Login Details")
-            return redirect('signin')
-        
-
+            return redirect('signin')  
+    else:
+        pass
     return render(request, "account/authentication.html")
 
 def signout(request):

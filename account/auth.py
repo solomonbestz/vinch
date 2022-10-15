@@ -16,7 +16,7 @@ class BackEndSetting(BaseBackend):
     def authenticate(self, request, email=None, password=None):
         UserModel = get_user_model()
         try:
-            user = UserModel.objects.get(Q(email_iexact=email))
+            user = UserModel.objects.get(Q(email=email))
 
             if user.check_password(password):
                 return user

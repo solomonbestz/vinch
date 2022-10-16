@@ -3,6 +3,7 @@ from django.contrib.auth import login, logout
 from django.contrib import messages
 from account.auth import BackEndSetting
 from .models import NewUser
+from store.models import *
 import json
 
 # Create your views here.
@@ -13,7 +14,6 @@ auth = BackEndSetting()
 def authentication(request):
     if request.method == "POST":
         if request.POST.get('submit') == 'Register':
-            print("entered reg")
             try:
                 first_name = request.POST.get("f-name")
                 last_name = request.POST.get("l-name")
@@ -39,8 +39,6 @@ def authentication(request):
                 return redirect('authentication')
     
         elif request.POST.get('submit') == 'Sign in':
-            
-            print("entered login")
             email = request.POST.get("email")
             password = request.POST.get("password")
 
@@ -49,10 +47,9 @@ def authentication(request):
                 login(request, user)
                 if user.is_active == True:
                     messages.success(request, "Successfully logged In.")
-                    print("User is logged in")
+                    add_cart_db(request)
                     return redirect("store")
                 else:
-                    print("User is not active")
                     return redirect("verify_404")
             else: 
                 messages.error(request, "Incorrect Login Details")
@@ -75,5 +72,19 @@ def check_email(request, email):
         messages.error(request, "Email already registered! Please try some otehr Email")
         return redirect("authentication")
 
-
-
+def add_cart_db(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+        except:
+            cart = {}
+        for i in cart:
+            try:
+                product = Product.objects.get(id=i) 
+                order, created = Order.objects.get_or_create(customer=customer, complete=False)
+                orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)        
+                orderItem.quantity = orderItem.quantity + cart[i]['quantity']
+                orderItem.save()
+            except:
+                pass

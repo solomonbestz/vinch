@@ -8,22 +8,6 @@ from .models import *
 
 # Store function
 def store(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        try:
-            cart = json.loads(request.COOKIES['cart'])
-        except:
-            cart = {}
-        for i in cart:
-            try:
-                product = Product.objects.get(id=i) 
-                order, created = Order.objects.get_or_create(customer=customer, complete=False)
-                orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
-
-                orderItem.quantity = cart[i]['quantity']
-                orderItem.save()
-            except:
-                pass
     local_market = Product.objects.filter(category_id= 1)
     vinch_products = Product.objects.filter(category_id= 2)
     context = {'vinch_products': vinch_products}
@@ -76,6 +60,7 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+        
     
 def processOrder(request):  
     transaction_id = datetime.datetime.now().timestamp()

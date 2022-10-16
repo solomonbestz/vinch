@@ -14,29 +14,31 @@ auth = BackEndSetting()
 def authentication(request):
     if request.method == "POST":
         if request.POST.get('submit') == 'Register':
-            try:
-                first_name = request.POST.get("f-name")
-                last_name = request.POST.get("l-name")
-                middle_name = request.POST.get("m-name")
-                email = request.POST.get("email")
-                gender = request.POST.get("gender")
-                password1 = request.POST.get("f-password")
-                password2 = request.POST.get("s-password")
+            # try:
+            first_name = request.POST.get("f-name")
+            last_name = request.POST.get("l-name")
+            middle_name = request.POST.get("m-name")
+            email = request.POST.get("email")
+            gender = request.POST.get("gender")
+            phone = request.POST.get("phone")
+            password1 = request.POST.get("f-password")
+            password2 = request.POST.get("s-password")
 
-                check_email(request, email)
+            check_email(request, email)
 
-                if password1 == password2:
-                    pass
-                else:
-                    return redirect("authentication")
+            if password1 == password2:
+                pass
+            else:
+                return redirect("authentication")
 
-                user = NewUser.objects.create_user(email, password1, first_name=first_name, last_name=last_name, middle_name=middle_name, gender=gender)
-                user.is_active = False
-                user.save()
-                messages.success(request, "You have successfully registered")
-                return redirect('authentication')
-            except:
-                return redirect('authentication')
+            user = NewUser.objects.create_user(email, password1, first_name=first_name, last_name=last_name, middle_name=middle_name, gender=gender, phone_number=phone)
+            user.is_active = False
+            user.save()
+
+            messages.success(request, "You have successfully registered")
+            return redirect('authentication')
+            # except:
+            #     return redirect('authentication')
     
         elif request.POST.get('submit') == 'Sign in':
             email = request.POST.get("email")
@@ -66,6 +68,10 @@ def signout(request):
 
 def verification_404(request):
     return render(request, "account/verify_404.html")
+
+def my_account(request):
+    account = NewUser.objects.get(id = request.user.id)
+    return render(request, "account/my_account.html",{"account": account})
 
 def check_email(request, email):
     if NewUser.objects.filter(email=email):

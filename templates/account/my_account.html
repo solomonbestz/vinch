@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Account{% endblock title %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center w-100 h-100">
+    <div class="w-20 text-center">
+        
+    </div>
+    <div class="w-70 my-5">
+        <h3 class="" style="font-size: 16px; border: 1px solid gray; border-radius: 4px 4px; height: 50px; padding-top: 20px; padding-left:5px"><b>ACCOUNT OVERVIEW</b></h3>
+        <div class="row" style=" border: 1px solid gray; padding-top: 10px">
+            <div class="col-md-6">
+                <div class="card border-success mb-3" style="max-width: 25rem; height: 200px">
+                    <div style="font-size: 14px; padding-left:5px; padding-top: 5px; border-bottom: 1px solid green;">ACCOUNT DETAILS </div>
+                    <div class="card-body text-primary">
+                        <h5 class="card-title">{{account.first_name}} {{account.last_name}}</h5>
+                        <p class="card-text" style="font-size: 12px; color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-success mb-3" style="max-width: 25rem; height: 200px">
+                    <div style="font-size: 14px; padding-left:5px; padding-top: 5px; border-bottom: 1px solid green;">ADDRESS BOOK</div>
+                    <div class="card-body text-primary">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text" style="font-size: 12px; color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content%}

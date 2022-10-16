@@ -18,6 +18,7 @@ class CustomAccountManager(BaseUserManager):
         other_fields.get("last_name")
         other_fields.get("middle_name")
         other_fields.get("gender")
+        other_fields.get("phone_number")
         other_fields.setdefault("is_superuser", False)
 
         return self._create_user(email, password, **other_fields)
@@ -63,6 +64,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=150)
     middle_name = models.CharField(max_length=150)
     gender = models.CharField(max_length=10, choices=STATUS, null=True)
+    phone_number = models.CharField(max_length=17, blank=True, null=True)
     joined_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default = False)
     is_active = models.BooleanField(default=False)
@@ -84,4 +86,4 @@ class Phone(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)

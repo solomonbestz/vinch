@@ -18,7 +18,6 @@ def cart(request):
     customer = request.user.customer
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items = order.orderitem_set.all()
-    print(items)
     if not items:
         return redirect('store')
     return render(request, 'store/cart.html')

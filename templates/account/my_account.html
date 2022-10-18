@@ -24,17 +24,105 @@
                 <div class="card  mb-3" style="width: 23rem; height: 200px; border: 1px solid lightgrey">
                     <div style="font-size: 13px; font-weight: bold; padding-left:20px; padding-top: 15px; border-bottom: 1px solid lightgrey; height: 50px;">ADDRESS BOOK</div>
                     <div class="card-body text-primary">
-                        <h6 class="card-title" style="color: black">{{account.first_name}} {{account.last_name}}</h6>
+                        <h6 class="card-title" style="color: black">{{shipping.first_name}} {{shipping.last_name}}</h6>
                         <p class="card-text my-2" style="font-size: 12px; color: black;">{{shipping.address}} {{shipping.city}} {{shipping.state}}</p>
-                        <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.phone}}</p>
+                        <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.phone_number}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
 </div>
 
+<div class="d-flex justify-content-center w-100 my-3">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="card-header py-3 bg-success">
+            <h5 class="mb-0 text-font text-uppercase">Edit Shipping Address</h5>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">city</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid city name is required.
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="registerRepeatPassword">Phone</label>
+                <input type="tel" name="phone" id="registerRepeatPassword" class="form-control" />
+                <div class="invalid-feedback">
+                    Valid phone number is required.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choose...</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+                <option>Nigeria</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid country.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">State</label>
+            <input type="text" id="form11Example5" name="state" class="form-control" required>
+            <div class="invalid-feedback">
+              Please provide a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <div class="invalid-feedback">
+              Zip code required.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
+    </form>
+<div>
 
 {% endblock content%}

@@ -6,11 +6,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/account/authentication.css' %}">
   </head>
   <body>
+    <div class="modal fade" id="myMessage" tabindex="-1" aria-labelledby="myMessageLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header text-center">
+                  <h5 class="modal-title w-100" id="myMessageLabel" style="font-family: 'Trocchi'; font-size:15px; color:green; font-weight: bolder;">VINCH MESSAGE</h5>
+                  <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              {% if messages %}
+                  {% for message in messages %}
+                      {% if message.tags == "success" %}
+                          <div class="modal-body">
+                              <div class="text-center text-success mt-3">
+                                  <i class="fa fa-check-circle" style="font-size:50px;color:green"></i>
+                              </div>
+                              <br>
+                              <div class="mb-3 text-center">
+                                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                                  <script>
+                                      $(document).ready(function(){
+                                      $('#myMessage').modal('show');
+                                      });
+                                  </script>
+                                  <b>{{message}}</b>
+                              </div>
+                          </div>
+                      {% elif message.tags == "error"%}
+                      <div class="modal-body">
+                          <div class="text-center text-success mt-3">
+                              <i class="fa fa-times-circle" style="font-size:50px;color:red"></i>
+                          </div>
+                          <br>
+                          <div class="mb-3 text-center">
+                              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                              <script>
+                                  $(document).ready(function(){
+                                  $('#myMessage').modal('show');
+                                  });
+                              </script>
+                              <strong>{{message}}</strong>
+                          </div>
+                      </div>
+                      {% endif %}
+                  {% endfor %}
+              {% endif %}
+          </div>
+      </div>
+  </div>
     {% block content %}{% endblock content %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

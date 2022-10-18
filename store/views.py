@@ -81,6 +81,7 @@ def processOrder(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False) 
+        user = NewUser.objects.get(customer=customer)
         total = int(data['shipping']['total'])
         order.transaction_id = transaction_id
 
@@ -92,6 +93,8 @@ def processOrder(request):
             ShippingAddress.objects.create(
                 customer = customer,
                 order = order,
+                first_name = user.first_name,
+                last_name = user.last_name,
                 address = data['shipping']['address'],
                 city = data['shipping']['city'],
                 state = data['shipping']['state'],

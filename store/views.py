@@ -15,19 +15,32 @@ def store(request):
 
 #Cart function
 def cart(request):
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    print(items)
+    if not items:
+        return redirect('store')
     return render(request, 'store/cart.html')
 
 
 #Checkout function
 def checkout(request):
     if request.user.is_authenticated:
-        customer = request.newuser.customer
+        display = True
+        customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        try:
+            shipping = ShippingAddress.objects.filter(customer=customer)
+            if shipping.exists():
+                display = False
+        except:
+            pass
     else:
         return redirect('authentication')
 
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'display': display}
     return render(request, 'store/checkout.html', context)
 
 #Product View Function
@@ -83,6 +96,7 @@ def processOrder(request):
                 address = data['shipping']['address'],
                 city = data['shipping']['city'],
                 state = data['shipping']['state'],
+                country = data['shipping']['country'],
                 zipcode = data['shipping']['zipcode'],
             )
     else:

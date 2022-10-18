@@ -70,8 +70,13 @@ def verification_404(request):
     return render(request, "account/verify_404.html")
 
 def my_account(request):
+    customer = request.user.customer
+    try:
+        shipping = ShippingAddress.objects.get(customer=customer)
+    except:
+        shipping = {}
     account = NewUser.objects.get(id = request.user.id)
-    return render(request, "account/my_account.html",{"account": account})
+    return render(request, "account/my_account.html",{"account": account, "shipping": shipping})
 
 def check_email(request, email):
     if NewUser.objects.filter(email=email):

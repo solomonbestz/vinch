@@ -8,46 +8,61 @@
   <!--Section: Design Block-->
   <section>
     <div class="row">
-      <div class="col-md-8 mb-4">
-        <div class="card mb-4">
-          <div class="card-header py-3">
-            <h5 class="mb-0 text-font text-uppercase">Delivery address</h5>
-          </div>
-          <div class="card-body">
-            <form id="form">
-              {% csrf_token %}
-              <div class="row mb-4">
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" id="form11Example1" name="address" class="form-control" />
-                    <label class="form-label" for="form11Example1">Address</label>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" id="form11Example2" name="city" class="form-control" />
-                    <label class="form-label" for="form11Example2">City</label>
-                  </div>
+     {% if display == True %}
+     <div class="col-md-8 mb-4">
+      <div class="card mb-4">
+        <div class="card-header py-3">
+          <h5 class="mb-0 text-font text-uppercase">Delivery address</h5>
+        </div>
+        <div class="card-body">
+          <form id="form">
+            {% csrf_token %}
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="form11Example1" name="address" class="form-control" required>
+                  <label class="form-label" for="form11Example1">Address</label>
                 </div>
               </div>
-            
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input type="text" id="form11Example5" name="state" class="form-control" />
-                <label class="form-label" for="form11Example5">State</label>
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="form11Example2" name="city" class="form-control" required>
+                  <label class="form-label" for="form11Example2">City</label>
+                </div>
               </div>
-              <!-- Number input -->
-              <div class="form-outline mb-4">
-                <input type="number" id="form11Example6" name="zipcode" class="form-control" />
-                <label class="form-label" for="form11Example6">Zipcode</label>
-              </div>
-              <div class="text-center">
-                <button id="form-button" type="submit" class="btn btn-success col-md-10">Continue</button>
-              </div>
-            </form>
-          </div>
+            </div>
+          
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form11Example5" name="state" class="form-control" required>
+              <label class="form-label" for="form11Example5">State</label>
+            </div>
+
+            <!--Country Input -->
+            <div class="form-outline mb-4">
+              <label for="country">Country</label>
+                <select class="custom-select d-block form-control" name="country" id="country" required>
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                  <option>United Kingdom</option>
+                  <option>Canada</option>
+                  <option>Nigeria</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+            </div>
+            <!-- Number input -->
+            <div class="form-outline mb-4">
+              <input type="number" id="form11Example6" name="zipcode" class="form-control" required>
+              <label class="form-label" for="form11Example6">Zipcode</label>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" id="make-payment" type="submit">Checkout</button>
+          </form>
         </div>
       </div>
+    </div>
+     {% endif %}
       <div class="col-md-4 mb-4 position-static">
         <div class="card mb-4">
           <div class="card-header py-3">
@@ -91,23 +106,60 @@
         </div>
       </div>
       <div class="col-md-8">
-        <div class="card mb-4 hidden" id="payment-info">
-          <div class="card-body">
-            <p class="text-uppercase fw-bold mb-3 text-font">PayPal Payment</p>
-            <div class="row">
-              <div class="col-md-6">
-                <input type="email" id="form1" class="form-control" />
-                  <label class="form-label" for="form1">Email Address</label>
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="card-header py-3">
+            <h4 class="mb-0 text-font text-uppercase">Payment</h4>
+          </div>
+          
+          <div class="d-block my-3" id="payment-info">
+            <div class="custom-control custom-radio">
+              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+              <label class="custom-control-label" for="credit">Credit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="debit">Debit card</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+              <label class="custom-control-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-name">Name on card</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="" required>
+              <small class="text-muted">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
               </div>
-              <div class="col-md-6">
-                <button type="button" id="make-payment" class="btn btn-outline-dark float-end button-color "
-                  data-mdb-ripple-color="dark">
-                  Send
-                </button>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cc-number">Credit card number</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <div class="invalid-feedback">
+                Credit card number is required
               </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiration">Expiration</label>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc-cvv">CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -125,12 +177,6 @@
 var form = document.getElementById('form')
   csrftoken = form.getElementsByTagName('input')[0].value
 
-  form.addEventListener('submit', function(e){
-    e.preventDefault()
-    console.log("form submitted.....")
-    document.getElementById('form-button').classList.add("hidden");
-    document.getElementById('payment-info').classList.remove("hidden")
-  })
 
 function submitFormData(){
   console.log('Payment Button Clicked')
@@ -139,6 +185,7 @@ function submitFormData(){
       'address': null,
       'city': null,
       'state': null,
+      'country': null,
       'zipcode': null,
       'total': total,
   }
@@ -146,6 +193,7 @@ function submitFormData(){
       shippingInfo.address = form.address.value
       shippingInfo.city = form.city.value
       shippingInfo.state = form.state.value
+      shippingInfo.country = form.country.value
       shippingInfo.zipcode = form.zipcode.value
   }
   console.log('Shipping Info:', shippingInfo)

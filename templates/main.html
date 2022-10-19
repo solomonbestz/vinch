@@ -199,7 +199,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'my_account' %}"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px;  color: green" ></i>My Account</a></li>
-              <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'my_order' %}"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
                 <li><hr class="dropdown-divider"></li> 
                 <li><a class="dropdown-item" id="clear-cart" href="{% url 'signout' %}"><i id='icon' class="fas fa-sign-out-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Logout</a></li>
               </ul>
@@ -215,8 +215,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'authentication' %}"><i id='icon' class="fa fa-sign-in-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Login</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'my_account' %}"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px; color: green" ></i>My Account</a></li>
-              <li><a class="dropdown-item" href="#"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'store' %}"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px; color: green" ></i>My Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'store' %}"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
             </ul>
           </li>
           {% endif %}

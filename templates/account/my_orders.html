@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}Orders{% endblock title %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center my-5">
+    <div class="card mb-3" style="max-width: 600px;">
+        {% for item in order_items  %}
+        <div class="row g-0">
+          <h6 style="background: lightgray; padding: 5px; margin-bottom: 0;"> Ordered on {{item.date_added}}</h6>
+          <div class="col-md-4">
+            <img src="{{item.product.image.url}}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{item.product.name}}</h5>
+              <p class="card-text">QTY: {{item.quantity}} </p>
+              <p class="card-text"><small class="text-muted">{{item.product.price|intcomma}}</small></p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content%}

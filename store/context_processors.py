@@ -8,7 +8,7 @@ def total_cart_items(request):
 
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         
-        items = order.orderitem_set.all()
+        items = order.order_items.all()
         if order:
             orderitems = OrderItem.objects.filter(order=order)
             qty = sum([item.quantity for item in orderitems])

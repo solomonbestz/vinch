@@ -79,6 +79,12 @@ def my_account(request):
     account = NewUser.objects.get(id = request.user.id)
     return render(request, "account/my_account.html",{"account": account, "shipping": shipping})
 
+def my_orders(request):
+    customer = request.user.customer
+    order = Order.objects.filter(customer=customer)
+    order_item = order.order_items
+    return render(request, "account/my_orders.html", {"order_item": order_item})
+
 def check_email(request, email):
     if NewUser.objects.filter(email=email):
         messages.error(request, "Email already registered! Please try some otehr Email")

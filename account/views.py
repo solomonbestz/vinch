@@ -75,6 +75,7 @@ def my_account(request):
         shipping = ShippingAddress.objects.get(customer=customer)
     except:
         shipping = {}
+    update_shipping_address(request, shipping)
     account = NewUser.objects.get(id = request.user.id)
     return render(request, "account/my_account.html",{"account": account, "shipping": shipping})
 
@@ -99,3 +100,23 @@ def add_cart_db(request):
                 orderItem.save()
             except:
                 pass
+
+def update_shipping_address(request, shipping):
+    if request.method == "POST":
+        firstname = request.POST.get("firstname")
+        lastname = request.POST.get("lastname")
+        city = request.POST.get("city")
+        address = request.POST.get('address')
+        country = request.POST.get("country")
+        state = request.POST.get("state")
+        zipcode = request.POST.get("zip")
+
+        shipping.first_name = firstname
+        shipping.last_name = lastname
+        shipping.city = city
+        shipping.address = address
+        shipping.country = country
+        shipping.state = state
+        shipping.zipcode = zipcode
+
+        shipping.save()

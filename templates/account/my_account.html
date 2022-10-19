@@ -43,14 +43,14 @@
         <div class="row my-3">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="firstName" placeholder="" name="firstname" value="{{shipping.first_name}}" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="lastName" placeholder="" name="lastname" value="{{shipping.last_name}}" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -60,14 +60,14 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{account.email}}" disabled>
                 <div class="invalid-feedback">
                   Please enter a valid email address for shipping updates.
                 </div>
               </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">city</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="lastName" placeholder="" name="city" value="{{shipping.city}}" required>
               <div class="invalid-feedback">
                 Valid city name is required.
               </div>
@@ -77,14 +77,14 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" value="{{shipping.address}}" required>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="registerRepeatPassword">Phone</label>
-                <input type="tel" name="phone" id="registerRepeatPassword" class="form-control" />
+                <input type="tel" name="phone" id="registerRepeatPassword" value="{{account.phone_number}}" class="form-control" disabled />
                 <div class="invalid-feedback">
                     Valid phone number is required.
                 </div>
@@ -95,9 +95,9 @@
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
+            <select class="custom-select d-block w-100" id="country" name="country" required>
                 <option value="">Choose...</option>
-                <option>United States</option>
+                <option >United States</option>
                 <option>United Kingdom</option>
                 <option>Canada</option>
                 <option>Nigeria</option>
@@ -108,14 +108,14 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="state">State</label>
-            <input type="text" id="form11Example5" name="state" class="form-control" required>
+            <input type="text" id="form11Example5" name="state" value="{{shipping.state}}" class="form-control" required>
             <div class="invalid-feedback">
               Please provide a valid state.
             </div>
           </div>
           <div class="col-md-3 mb-3">
             <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <input type="text" class="form-control" id="zip" placeholder="" name="zip" value="{{shipping.zipcode}}" required>
             <div class="invalid-feedback">
               Zip code required.
             </div>

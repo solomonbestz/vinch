@@ -15,11 +15,14 @@ def store(request):
 
 #Cart function
 def cart(request):
-    customer = request.user.customer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items = order.orderitem_set.all()
-    if not items:
-        return redirect('store')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        if not items:
+            return redirect('store')
+    else:
+        pass
     return render(request, 'store/cart.html')
 
 

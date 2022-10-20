@@ -81,9 +81,8 @@ def my_account(request):
 
 def my_orders(request):
     customer = request.user.customer
-    order = Order.objects.filter(customer=customer)
-    order_item = order.order_items
-    return render(request, "account/my_orders.html", {"order_item": order_item})
+    order = Order.objects.filter(customer=customer, complete=True)
+    return render(request, "account/my_orders.html", {'order_item': order})
 
 def check_email(request, email):
     if NewUser.objects.filter(email=email):

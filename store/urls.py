@@ -11,4 +11,5 @@ urlpatterns = [
    # Url paths for json data
    path('update_item/', views.updateItem, name="update_item"), 
    path('process_order/', views.processOrder, name="proces_order"),
+   path('newprocess_order/', views.neworderprocess, name="newprocess_order"),
 ] 

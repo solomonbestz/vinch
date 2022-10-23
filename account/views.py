@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout 
 from django.contrib import messages
 from account.auth import BackEndSetting
+from .email import send_message
 from .models import NewUser
 from store.models import *
 import json
@@ -34,6 +35,7 @@ def authentication(request):
             user = NewUser.objects.create_user(email, password1, first_name=first_name, last_name=last_name, middle_name=middle_name, gender=gender, phone_number=phone)
             user.is_active = False
             user.save()
+            send_message('Activate Your Account','Nothing for now', email)
 
             messages.success(request, "You have successfully registered")
             return redirect('authentication')

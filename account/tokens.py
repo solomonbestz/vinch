@@ -7,7 +7,7 @@ class AccountActivationTokenGenerator(PasswordResetTokenGenerator):
     def _make_hash_value(self, user: NewUser, timestamp):
         return(
             text_type(user.pk) + text_type(timestamp) +
-            text_type(user.newuser.is_active)
+            text_type(user.is_active)
         )
     
 account_activation_token = AccountActivationTokenGenerator()

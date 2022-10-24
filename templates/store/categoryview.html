@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title%} Products {% endblock title %}
+
+{% block content %}
+
+
+<section id="vinch-container" class="container d-flex align align-items-center justify-content-center">
+    {% for vinchs in product_category %} 
+    <div class="w-100">
+      <h1 class="h1-vinch-special text-center fw-bold">{{vinchs.name}}</h1>
+      {% comment %} {% for item in vinchs.product_set.all %} {% endcomment %}
+      <div class="row">
+          <div id="col" class="col-md-3 col-6">
+            <div class="box-element prdouct">
+              <img src="{{item.image.url}}" class="thumbnail" alt="...">
+              <h6><strong>{{vinchs.product_category.name}}</strong></h6>
+              <hr>
+              <button data-product="{{item.id}}" data-action="add" class="btn btn-outline-secondary add-btn text-center update-cart" id="button">Add to Cart</button>
+              <a class="btn btn-outline-success" href="{{vinchs.get_absolute_url}}">View</a>
+              <h4>&#8358;{{product_category.price}}</h4>
+            </div>
+          </div>
+          {% comment %}{% endfor %} {% endcomment %}
+        {% endfor %}
+      </div>
+    </div>
+   </section>
+{% endblock content %}

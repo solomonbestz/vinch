@@ -9,6 +9,7 @@ urlpatterns = [
    path('cart/', views.cart, name="cart"),
    path('checkout/', views.checkout, name="checkout"),
    path('product/<slug:slug>/', views.productview, name='product_detail'),
+   path('category/<slug:slug>/', views.categoryview, name='category_detail'),
 
    # Url paths for json data
    path('update_item/', views.updateItem, name="update_item"), 

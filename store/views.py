@@ -8,9 +8,9 @@ from .models import *
 
 # Store function
 def store(request):
-    local_market = Product.objects.filter(category_id= 2)
+    category_view = Category.objects.get()
     vinch_products = Product.objects.filter(category_id= 1)
-    context = {'vinch_products': vinch_products}
+    context = {'vinch_products': vinch_products, 'category_view': category_view}
     return render(request, 'store/store.html', context)
 
 #Cart function
@@ -45,8 +45,13 @@ def checkout(request):
     context = {'items': items, 'order': order, 'display': display}
     return render(request, 'store/checkout.html', context)
 
+def categoryview(request, slug):
+    product_category = Category.objects.filter(slug=slug)
+    return render(request, 'store/categoryview.html', {'product_category': product_category})
+
+
 #Product View Function
-def productview(request, slug='rice'):
+def productview(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     return render(request, 'store/productview.html', {'product': product})
 

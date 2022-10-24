@@ -59,7 +59,7 @@ def authentication(request):
                 if user.is_active == True:
                     messages.success(request, "Successfully logged In.")
                     add_cart_db(request)
-                    return redirect("store")
+                    return redirect("home")
                 else:
                     return redirect("verify_404")
             else: 
@@ -72,7 +72,7 @@ def authentication(request):
 
 def signout(request):
     logout(request)
-    return redirect('store')
+    return redirect('home')
 
 def ActivateAccount(request, uidb64, token):
     try:

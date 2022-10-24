@@ -1,5 +1,7 @@
 from django.db import models
+from django.urls import reverse
 from account.models import NewUser
+
 
 # Create your models here.
 # Create your models here. 
@@ -30,6 +32,9 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     price = models.IntegerField()
     image = models.ImageField(null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('store:product_detail', args=[self.slug])
 
     def __str__(self):
         return self.name

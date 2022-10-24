@@ -7,26 +7,26 @@
     <div class="card my-5" style="max-width: 800px;">
         <div class="row g-0" style="height: 400px;">
             <div class="col-md-6 col-12" style="background: white; padding-top: 70px; border: 1px solid green">
-                <img src="{% static 'img/jollofrice.jpg' %}" style="padding-left: 25px; padding-top: 30px; width: 95%; height: 250px; border-radius: 6px 6px 6px 6px" alt="...">
+                <img src="{{product.image.url}}" style="padding-left: 25px; padding-top: 30px; width: 95%; height: 250px; border-radius: 6px 6px 6px 6px" alt="...">
             </div>
             <div class="col-md-6 col-12" style="border: 1px solid green">
                 <div class="card-body">
     
-                    <h5 class="card-title fw-bold">Card title would stay here</h5>
-                    <span style="font-size: 14px; margin-bottom: 2px">Category</span>
+                    <h5 class="card-title fw-bold">{{product.name}}</h5>
+                    <span style="font-size: 14px; margin-bottom: 2px">{{product.category}}</span>
                     <hr class="bg-danger border-2 border-top border-success">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">{{product.description}}</p>
                     <hr class="bg-danger border-2 border-top border-success">
                     <span style="font-size: 15px; font-weight: bold;">IMAGES</span>
                     <div class="row">
                         <div class="col-md-2 col-2">
-                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                            <img src="{{product.image.url}}" style="height: 35px; width: 35px; object-fit: cover;"  class="rounded-circle" alt="...">
                         </div>
                         <div class="col-md-2 col-2">
-                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                            <img src="{{product.image.url}}" style="height: 35px; width: 35px; object-fit: cover;"  class="rounded-circle" alt="...">
                         </div>
                         <div class="col-md-2 col-2">
-                            <img src="{% static 'img/jollofrice.jpg' %}" style="height: 35px; width: 35px"  class="rounded-circle" alt="...">
+                            <img src="{{product.image.url}}" style="height: 35px; width: 35px; object-fit: cover;"  class="rounded-circle" alt="...">
                         </div>
                     </div>
                     <hr class="bg-danger border-2 border-top border-success">

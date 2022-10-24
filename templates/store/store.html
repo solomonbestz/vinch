@@ -7,7 +7,7 @@
    <section class="container d-flex align align-items-center justify-content-center">
         <div class="container-fluid">
             <div class="row mt-5">
-                <h1 class="h1-local-market text-center fw-bold ">Local Market</h1>
+                <h1 class="h1-local-market text-center fw-bold ">Local Market <span style="float: right; font-size: 14px; padding-top: 6px"><a href="/" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
                 <div class="owl-carousel owl-theme">
                   {% for vinchs in vinch_products %} 
                     <div class="item mb-4">
@@ -27,7 +27,7 @@
    </section>
    <section id="vinch-container" class="container d-flex align align-items-center justify-content-center">
     <div class="w-100">
-      <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials</h1>
+      <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="/" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
       <div class="row">
         {% for vinchs in vinch_products %} 
           <div id="col" class="col-md-4 col-6">
@@ -36,7 +36,7 @@
               <h6><strong>{{vinchs.name}}</strong></h6>
               <hr>
               <button data-product="{{vinchs.id}}" data-action="add" class="btn btn-outline-secondary add-btn text-center update-cart" id="button">Add to Cart</button>
-              <a class="btn btn-outline-success" href="{% url 'productview'%}">View</a>
+              <a class="btn btn-outline-success" href="{{vinchs.get_absolute_url}}">View</a>
               <h4>&#8358;{{vinchs.price}}</h4>
             </div>
           </div>

@@ -145,7 +145,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
           <li class="nav-item text-center mx-2 mx-lg-1">
-            <a class="nav-link active" aria-current="page" href="{% url 'store' %}">
+            <a class="nav-link active" aria-current="page" href="{% url 'store:home' %}">
               <div>
                 <i class="fas fa-home fa-lg mb-1"></i>
               </div>
@@ -181,7 +181,7 @@
         <!-- Right links -->
         <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
           <li class="nav-item text-center mx-2 mx-lg-1">
-            <a class="nav-link" href="{% url 'cart' %}">
+            <a class="nav-link" href="{% url 'store:cart' %}">
               <div>
                 <i id='icon' class="fa fa-shopping-cart fa-lg mb-1"></i>
                 <span class="badge rounded-pill badge-notification cart-qty" id="badge">{{qty}}</span>
@@ -215,13 +215,13 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'authentication' %}"><i id='icon' class="fa fa-sign-in-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Login</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'store' %}"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px; color: green" ></i>My Account</a></li>
-              <li><a class="dropdown-item" href="{% url 'store' %}"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'store:home' %}"> <i id='icon' class="fa fa-user fa-lg mb-1" style="padding-right: 10px; color: green" ></i>My Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'store:home' %}"> <i id='icon' class="fa fa-box fa-lg mb-1" style="padding-right: 10px;  color: green"></i>My Orders</a></li>
             </ul>
           </li>
           {% endif %}
           <li class="nav-item text-center mx-2 mx-lg-1">
-            <a class="nav-link" href="{% url 'cart' %}">
+            <a class="nav-link" href="{% url 'store:cart' %}">
               <div>
                 <i id='icon' class="fa fa-question-circle fa-lg mb-1"></i>
               </div>
@@ -235,10 +235,6 @@
     </div> 
 </nav>
   <!-- Navbar -->
-  
-
-
-
 
     <div class="w-100 ">
       <!-- Header Mobile Menu -->
@@ -250,7 +246,7 @@
               <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
             <div class="cart">
-              <a href="{% url 'cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
+              <a href="{% url 'store:cart' %}"><i id='icon' class="fas fa-shopping-cart fa-lg mb-1"></i></a>
               <span class="badge rounded-pill badge-notification" id="badge">{{qty}}</span>
             </div>
           </div>
@@ -261,7 +257,7 @@
       <div class="mobile-footer-container w-100">
         <div class='mobile-menu w-100'>
           <ul class="d-flex justify-content-center justify-content-md-center">
-            <li><a href="{% url 'store' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
+            <li><a href="{% url 'store:home' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
             <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
             <li><a href=""><i class="fas fa-bell fa-lg mb-1"></i></a></li>
             <li><a href=""><i class="fas fa-globe fa-lg mb-1"></i></a></li>

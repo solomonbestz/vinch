@@ -1,5 +1,5 @@
 
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import JsonResponse
 import json
 import datetime
@@ -8,8 +8,8 @@ from .models import *
 
 # Store function
 def store(request):
-    local_market = Product.objects.filter(category_id= 1)
-    vinch_products = Product.objects.filter(category_id= 2)
+    local_market = Product.objects.filter(category_id= 2)
+    vinch_products = Product.objects.filter(category_id= 1)
     context = {'vinch_products': vinch_products}
     return render(request, 'store/store.html', context)
 
@@ -20,7 +20,7 @@ def cart(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         if not items:
-            return redirect('store')
+            return redirect('home')
     else:
         pass
     return render(request, 'store/cart.html')
@@ -46,8 +46,9 @@ def checkout(request):
     return render(request, 'store/checkout.html', context)
 
 #Product View Function
-def productview(request):
-    return render(request, 'store/productview.html')
+def productview(request, slug='rice'):
+    product = get_object_or_404(Product, slug=slug, in_stock=True)
+    return render(request, 'store/productview.html', {'product': product})
 
 def updateItem(request):
     data = json.loads(request.body)

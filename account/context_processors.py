@@ -3,7 +3,8 @@ from .models import NewUser
 
 def users(request):
     if request.user.is_authenticated:
-        last_name = NewUser.objects.filter(last_name=request.user)
+        username = NewUser.objects.get(last_name=request.user)
+        last_name = username.last_name
     else:
         last_name = "Account"
         pass

@@ -2,11 +2,13 @@ from django.urls import path
 
 from . import views
 
+app_name = "store"
+
 urlpatterns = [
-   path('', views.store, name="store"),
+   path('', views.store, name="home"),
    path('cart/', views.cart, name="cart"),
    path('checkout/', views.checkout, name="checkout"),
-   path('productview/', views.productview, name="productview"),
+   path('product/<slug:slug>/', views.productview, name='product_detail'),
 
    # Url paths for json data
    path('update_item/', views.updateItem, name="update_item"), 

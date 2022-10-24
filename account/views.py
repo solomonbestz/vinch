@@ -1,8 +1,17 @@
+from django.contrib.sites.shortcuts import get_current_site
+from django.http import HttpResponse
+from django.utils.encoding import force_bytes
+from .email import send_message
+from django.utils.http import urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout 
 from django.contrib import messages
 from account.auth import BackEndSetting
-from .email import send_message
+from .activation import activate_account
 from .models import NewUser
 from store.models import *
 import json
@@ -35,7 +44,7 @@ def authentication(request):
             user = NewUser.objects.create_user(email, password1, first_name=first_name, last_name=last_name, middle_name=middle_name, gender=gender, phone_number=phone)
             user.is_active = False
             user.save()
-            send_message('Activate Your Account','Nothing for now', email)
+            activate_account(request, user, email)
 
             messages.success(request, "You have successfully registered")
             return redirect('authentication')
@@ -66,6 +75,22 @@ def authentication(request):
 def signout(request):
     logout(request)
     return redirect('store')
+
+def ActivateAccount(request, uidb64, token):
+    try:
+        uid = force_bytes(urlsafe_base64_decode(uidb64))
+        user = NewUser.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, NewUser.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+
+        return HttpResponse('Your account has been activated')
+    else:
+        return HttpResponse('Activation link is invalid, contact admin for further help.')
+
 
 
 def verification_404(request):

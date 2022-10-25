@@ -45,8 +45,9 @@ def checkout(request):
     context = {'items': items, 'order': order, 'display': display}
     return render(request, 'store/checkout.html', context)
 
-def categoryview(request, slug):
-    product_category = Category.objects.filter(slug=slug)
+def categoryview(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    product_category = Product.objects.filter(category=category)
     return render(request, 'store/categoryview.html', {'product_category': product_category})
 
 

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'store.apps.StoreConfig',
     'account.apps.AccountConfig',
+    'vinchadmin.apps.VinchadminConfig',
     'six'
 ]
 

@@ -20,7 +20,7 @@ def cart(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         if not items:
-            return redirect('home')
+            return redirect('store:home')
     else:
         pass
     return render(request, 'store/cart.html')

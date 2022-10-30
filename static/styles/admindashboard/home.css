@@ -28,4 +28,10 @@ button {
         height: calc(100% - var(--topNavbarHeight));
         top: var(--topNavbarHeight);
     }
+    #admin-sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        height: calc(100% - var(--topNavbarHeight));
+        top: var(--topNavbarHeight);
+    }
 }

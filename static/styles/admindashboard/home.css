@@ -22,6 +22,9 @@ button {
     .offcanvas-backdrop::before{
         display: none;   
     }
+    main{
+        margin-left: calc(var(--offcanvas-width ) + 5px);
+    }
     #admin-sidebar-nav{
         transform: none;
         visibility: visible !important;

@@ -62,6 +62,10 @@ def authentication(request):
                     return redirect("home")
                 else:
                     return redirect("verify_404")
+            elif user is not None and user.is_staff == True:
+                login(request, user)
+                messages.success(request, "Successfully logged In.")
+                return redirect('dashboard')
             else: 
                 messages.error(request, "Incorrect Login Details")
                 return redirect('authentication')  

@@ -77,8 +77,6 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.last_name
 
-    # def send_user(self):
-    #     user_created.send(sender=self.__class__)
 
 class Phone(models.Model):
     user = models.OneToOneField(NewUser, blank=True, on_delete=models.CASCADE, null=True)

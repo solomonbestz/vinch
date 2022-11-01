@@ -40,10 +40,9 @@
                <i class="bi bi-person-fill"></i>
                </a>
                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" id="clear-cart" href="{% url 'signout' %}"><i id='icon' class="fas fa-sign-out-alt fa-lg mb-1" style="padding-right: 10px;  color: green"></i>Logout</a></li>
+                  {% comment %} <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
                </ul>
             </li>
             </ul>

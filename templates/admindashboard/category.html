@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}Users{% endblock title %}
+{% block title %}Category{% endblock title %}
 
 {% block content %}
 
@@ -11,38 +11,22 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Users
+                    Categories
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Email Address</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Last Name</th>
-                                    <th>Is Active</th>
-                                    <th>Is staff</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for user in  users%}
+                                {% for cat in  category%}
                                     <tr>
-                                        <td>{{user.email}}</td>
-                                        <td>{{user.first_name}}</td>
-                                        <td>{{user.middle_name}}</td>
-                                        <td>{{user.last_name}}</td>
-                                        {% if user.is_active == True %}
-                                            <td><i class="bi bi-check-circle-fill"></i></td>
-                                        {% else %}
-                                            <td><i class="bi bi-x-circle-fill"></i></td>
-                                        {% endif %}
-                                        {% if user.is_staff == True %}
-                                            <td><i class="bi bi-check-circle-fill"></i></td>
-                                        {% else %}
-                                            <td><i class="bi bi-x-circle-fill"></i></td>
-                                        {% endif %}
+                                        <td><a style="text-decoration: none; color: black; cursor: pointer;" href="#">{{cat.name}}</a></td>
+                                        <td>{{cat.slug}}</td>     
                                     </tr>
                                 {% endfor %}
                             </tbody>

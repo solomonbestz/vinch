@@ -11,8 +11,8 @@ def dashboard(request):
 def users(request):
     if request.user.is_authenticated:
         u = NewUser.objects.all()
-        user = Paginator(u, 1)
-        page_num = request.GET.get('page', 10)
+        user = Paginator(u, 10)
+        page_num = request.GET.get('page', 1)
 
         try:
             user = user.page(page_num)
@@ -24,10 +24,10 @@ def users(request):
 
 def customers(request):
     if request.user.is_authenticated:
-        
+
         c = Customer.objects.all()
-        customer = Paginator(c, 1)
-        page_num = request.GET.get('page', 10)
+        customer = Paginator(c, 10)
+        page_num = request.GET.get('page', 1)
         try:
             customer = customer.page(page_num)
         except EmptyPage:
@@ -39,8 +39,8 @@ def customers(request):
 def category(request):
     if request.user.is_authenticated:
         c = Category.objects.all()
-        categories = Paginator(c, 1)
-        page_num = request.GET.get('page', 10)
+        categories = Paginator(c, 10)
+        page_num = request.GET.get('page', 1)
         try:
             categories = categories.page(page_num)
         except EmptyPage:
@@ -57,5 +57,14 @@ def products(request):
     return render(request, 'admindashboard/all_products.html', {'product': prod})
 
 def orders(request):
-    order = Order.objects.all()
-    return render()
+    if request.user.is_authenticated:
+        o = Order.objects.all()
+        order = Paginator(o, 10)
+        page_num = request.GET.get('page', 1)
+        try:
+            order = order.page(page_num)
+        except EmptyPage:
+            order = order.page(1)
+    else:
+        return redirect('authentication')
+    return render(request, 'admindashboard/all_orders.html', {'order': order})

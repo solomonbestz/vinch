@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}Customers{% endblock title %}
+{% block title %}Orders{% endblock title %}
 
 {% block content %}
 
@@ -18,19 +18,23 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>User</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>User</th>
+                                    <th>Customer</th>
+                                    <th>Complete</th>
+                                    <th>Order Status</th>
+                                    <th>Transaction Id</th>
+                                    <th>Edit Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for user in  customers%}
+                                {% for orders in  order%}
                                     <tr>
-                                        <td>{{user.user}}</td>
-                                        <td>{{user.name}}</td>
-                                        <td>{{user.email}}</td> 
-                                        <td><a href="">View</a></td>    
+                                        <td>{{orders.customer}}</td>
+                                        <td>{{orders.complete}}</td>
+                                        <td>{{orders.order_status}}</td> 
+                                        <td>{{orders.transaction_id}}</td>
+                                        {% if orders.complete == True %}
+                                            <td><a href="">Edit</a></td>   
+                                        {% endif %} 
                                     </tr>
                                 {% endfor %}
                             </tbody>

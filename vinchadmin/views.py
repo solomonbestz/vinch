@@ -49,6 +49,7 @@ def category(request):
         return redirect('authentication')
     return render(request, 'admindashboard/category.html', {'category': categories})
 
+
 def products(request):
     if request.user.is_authenticated:
         prod = Product.objects.all()
@@ -56,6 +57,16 @@ def products(request):
         return redirect('authentication')
     return render(request, 'admindashboard/all_products.html', {'product': prod})
 
+def add_product(request):
+    if request.user.is_authenticated:
+        pass
+    return render(request, 'admindashboard/add_product.html')
+
+def add_category(request):
+    if request.user.is_authenticated:
+        pass
+    return render(request, 'admindashboard/add_category.html')
+    
 def orders(request):
     if request.user.is_authenticated:
         o = Order.objects.all()

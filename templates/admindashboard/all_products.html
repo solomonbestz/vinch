@@ -1,0 +1,37 @@
+
+{% extends 'admindashboard/home.html' %}
+{% load static %}
+
+
+{% block title %}Products{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid my-5">
+    {% for vinchs in product %} 
+    <div class="w-100">
+        <h1 class="h1-vinch-special text-center fw-bold">Products</h1>
+        <div class="row">
+            <div id="col" class="col-md-3 col-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{vinchs.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{vinchs.category}}</h5>
+                      <p class="card-text">{{vinchs.description}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Product Name: {{vinchs.name}}</li>
+                      <li class="list-group-item">&#8358;{{vinchs.price}}</li>
+                    </ul>
+                    <div class="card-body">
+                      <a href="#" class="card-link">Edit</a>
+                      <a href="#" class="card-link">Delete</a>
+                    </div>
+                  </div>
+            </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

@@ -13,10 +13,10 @@
             {% csrf_token %}
             <div class="row my-3">
                 <div class="col-md-6 mb-3">
-                  <label for="firstName">Category Name</label>
+                  <label for="firstName">Product Name</label>
                   <input type="text" class="form-control" id="name" placeholder="" name="name" required>
                   <div class="invalid-feedback">
-                    Valid Category Name is required.
+                    Valid Product Name is required.
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -29,9 +29,24 @@
             </div>
             <div class="row my-3">
                 <div class="col-md-6 mb-3">
-                  <label for="country">Country</label>
-                  <select class="custom-select d-block w-100" id="country" name="country" required>
-                      <option value="">Choose...</option>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="instock" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          In Stock
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="id_image">Image</label>
+                    <div class="input-group mb-3">
+                        <input type="file" name="image" accept="image/*" id="id_image">
+                    </div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-6 mb-3">
+                  <label for="country">Category</label>
+                  <select class="custom-select d-block w-100" id="categ" name="categ" required>
                       {% for cat in category  %}
                         <option>{{cat.name}}</option>
                       {% endfor %}
@@ -40,7 +55,21 @@
                     Please select a valid category.
                   </div>
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="state">Description</label>
+                    <textarea id="form11Example5" name="description" value="" class="form-control" required></textarea>
+                    <div class="invalid-feedback">
+                      Please provide a valid description.
+                    </div>
+                  </div>
             </div>
+            <div class="col-md-12 mb-3">
+                <label for="lastName">Price</label>
+                <input type="number" class="form-control" id="slug" placeholder="" name="price" required>
+                <div class="invalid-feedback">
+                  Valid price is required.
+                </div>
+              </div>
               <button class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
         </form>
     </div>

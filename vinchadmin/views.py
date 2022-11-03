@@ -60,6 +60,24 @@ def products(request):
 def add_product(request):
     if request.user.is_authenticated:
         category = Category.objects.all()
+        if request.method == "POST":
+            name = request.POST.get("name")
+            cat = request.POST.get("categ")
+            slug = request.POST.get("slug")
+            description = request.POST.get("description")
+            in_stock = request.POST.get("instock")
+            price = request.POST.get("price")
+            image = request.POST.get("image")
+
+            cate = Category.objects.get(name=cat)
+
+
+            Product.objects.create(name = name, category = cate, slug = slug, description = description, in_stock = True, price = price, image = image)
+            
+            return redirect('dashboard')
+
+
+
     return render(request, 'admindashboard/add_product.html', {'category': category})
 
 def add_category(request):

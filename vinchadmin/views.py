@@ -59,12 +59,18 @@ def products(request):
 
 def add_product(request):
     if request.user.is_authenticated:
-        pass
-    return render(request, 'admindashboard/add_product.html')
+        category = Category.objects.all()
+    return render(request, 'admindashboard/add_product.html', {'category': category})
 
 def add_category(request):
     if request.user.is_authenticated:
-        pass
+        if request.method == "POST":
+            name = request.POST.get("name")
+            slug = request.POST.get("slug")
+
+            Category.objects.create(name=name, slug=slug)
+            return redirect('dashboard')
+
     return render(request, 'admindashboard/add_category.html')
     
 def orders(request):

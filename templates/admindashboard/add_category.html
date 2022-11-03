@@ -7,7 +7,28 @@
 {% block content %}
 
 <div class="container-fluid my-5">
-Add Category
+    <div class="d-flex justify-content-center w-100 my-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row my-3">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName">Category Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="" name="name" required>
+                  <div class="invalid-feedback">
+                    Valid Category Name is required.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName">Slug Name</label>
+                  <input type="text" class="form-control" id="slug" placeholder="" name="slug" required>
+                  <div class="invalid-feedback">
+                    Valid Slug Name is required.
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
+        </form>
+    </div>
 </div>
 
 {% endblock content%}

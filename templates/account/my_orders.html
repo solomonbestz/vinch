@@ -6,15 +6,15 @@
 {% block content %}
 
 <div class="d-flex justify-content-center my-5">
-    <div class="card mb-3" style="max-width: 600px;">
+    <div class="card mb-3 my-5" style="max-width: 600px;">
       {% for order in order_item %}
         {% for item in order.orderitem_set.all %}
         <div class="row g-0 my-2">
           <h6 style="background: lightgray; padding: 5px; margin-bottom: 0;"> Ordered on {{item.date_added}}</h6>
-          <div class="col-md-4">
+          <div class="col-md-4 col-6">
             <img src="{{item.product.image.url}}" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="...">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 col-6">
             <div class="card-body">
               <h5 class="card-title">{{item.name}}</h5>
               <p class="card-text">QTY: {{item.quantity}} </p>

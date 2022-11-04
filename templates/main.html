@@ -254,16 +254,16 @@
       </div>
       {% block content %}{% endblock content %}
 
-      <div class="b-example-divider"></div>
 
-      <footer class="bg-light text-center text-lg-start">
+
+      {% comment %} <footer class="bg-light text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: orange;">
           © 2022 Copyright:
           <a class="text-dark" href="https://vinch.ng/">Vinch Foods</a>
         </div>
         <!-- Copyright -->
-      </footer>
+      </footer> {% endcomment %}
     
 
       <!-- Footer Mobile Menu -->
@@ -271,10 +271,16 @@
         <div class='mobile-menu w-100'>
           <ul class="d-flex justify-content-center justify-content-md-center">
             <li><a href="{% url 'store:home' %}"><i class="fas fa-home fa-lg mb-1"></i></a></li>
-            <li><a href=""><i class="fas fa-comment fa-lg mb-1"></i></a></li>
-            <li><a href=""><i class="fas fa-bell fa-lg mb-1"></i></a></li>
-            <li><a href=""><i class="fas fa-globe fa-lg mb-1"></i></a></li>
-            <li><a href=""><i class="fas fa-user fa-lg mb-1"></i></a></li>
+            <li><a href="{% url 'store:home' %}"><i class="fas fa-comment fa-lg mb-1"></i></a></li>
+            <li><a href="{% url 'store:home' %}"><i class="fas fa-bell fa-lg mb-1"></i></a></li>
+            
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'my_order' %}"><i class="fas fa-box fa-lg mb-1"></i></a></li>
+              <li><a href="{% url 'my_account' %}"> <i class="fas fa-user-check fa-lg mb-1"></i></a></li>
+            {% else %}
+            <li><a href="{% url 'store:home' %}"><i class="fas fa-box fa-lg mb-1"></i></a></li>
+            <li><a href="{% url 'authentication' %}"> <i class="fas fa-user-times fa-lg mb-1" ></i></a></li>
+            {% endif %}
           </ul>
         </div>
       </div>

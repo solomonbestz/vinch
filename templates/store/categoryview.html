@@ -7,10 +7,11 @@
 
 
 <section id="vinch-container" class="container d-flex align align-items-center justify-content-center my-5">
-    {% for vinchs in product_category %} 
+
     <div class="w-100">
-      <h1 class="h1-vinch-special text-center fw-bold">{{vinchs.category}}</h1>
+      <h1 class="h1-vinch-special text-center fw-bold my-5">{{vinchs.category}}</h1>
       <div class="row">
+        {% for vinchs in product_category %} 
           <div id="col" class="col-md-3 col-6">
             <div class="box-element prdouct">
               <img src="{{vinchs.image.url}}" style="object-fit: cover;" class="thumbnail" alt="...">

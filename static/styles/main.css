@@ -140,6 +140,10 @@
     padding:10px;
   }
 
+footer{
+    display: block;
+}
+
 /* Mobile Device view */
 
 /* Tablets Views */
@@ -151,6 +155,9 @@
         display: none;
     }
     .navbar-toggler{
+        display: none;
+    }
+    footer{
         display: none;
     }
     .mobile-footer-container{
@@ -208,6 +215,9 @@
         display: none;
     }
     .navbar-brand{
+        display: none;
+    }
+    footer{
         display: none;
     }
     .navbar-toggler{
@@ -268,6 +278,10 @@
     .navbar-brand{
         display: none;
     }
+
+    #copyright{
+        color: yellow;
+    }
     .navbar-toggler{
         display: none;
     }
@@ -324,6 +338,10 @@
     display: none;
 }
 .navbar-brand{
+    display: none;
+}
+
+footer{
     display: none;
 }
 .navbar-toggler{
@@ -421,6 +439,12 @@
     }
     .navbar-toggler{
         display: none;
+    }
+    footer{
+        display: none;
+    }
+    #copyright{
+        color: yellow;
     }
     .mobile-footer-container{
         display: block;

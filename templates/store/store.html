@@ -50,22 +50,18 @@
       <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{{cat.get_absolute_url}}" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
       {% endfor %}
       <div class="row">
-        {% for vinchs in vinch_nuts  %}
-        <div class="col-md-3 col-6 mx-auto">
-          <div class="card h-50 w-100" style="width: 18rem;">
-            <img  style="height: 50%; width: object-fit: cover" src="{{vinchs.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">{{vinchs.name}}</h5>
-            </div>
-            <div class="card-footer">
-              <div class="d-flex justify-content-between">
-                <a class="btn btn-outline-success" href="{{vinchs.get_absolute_url}}">View</a>
-                <h4 class="fw-bold">&#8358;{{vinchs.price}}</h4>
-              </div>
+        {% for vinchs in vinch_nuts %} 
+          <div id="col" class="col-md-3 col-6">
+            <div class="box-element prdouct">
+              <img src="{{vinchs.image.url}}" class="thumbnail" alt="...">
+              <h6><strong>{{vinchs.name}}</strong></h6>
+              <hr>
+              <a class="btn btn-outline-success" href="{{vinchs.get_absolute_url}}">View</a>
+              <h4>&#8358;{{vinchs.price}}</h4>
             </div>
           </div>
-        </div>
         {% endfor %}
+      </div>
       </div>
     </div>
    </section>

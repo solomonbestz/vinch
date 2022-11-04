@@ -17,7 +17,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
-                                <tr>
+                                <tr><th>Order ID</th>
                                     <th>Customer</th>
                                     <th>Complete</th>
                                     <th>Order Status</th>
@@ -28,12 +28,13 @@
                             <tbody>
                                 {% for orders in  order%}
                                     <tr>
+                                        <td>{{orders.id}}</td>
                                         <td>{{orders.customer}}</td>
                                         <td>{{orders.complete}}</td>
                                         <td>{{orders.order_status}}</td> 
                                         <td>{{orders.transaction_id}}</td>
                                         {% if orders.complete == True %}
-                                            <td><a href="">Edit</a></td>   
+                                            <td><a href="">Edit</a> || <a href="">View</a> </td>   
                                         {% endif %} 
                                     </tr>
                                 {% endfor %}

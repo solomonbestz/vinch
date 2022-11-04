@@ -6,8 +6,9 @@
 {% block content %}
 
 <section id="productview-container" class="container d-flex align align-items-center justify-content-center">
-    <div class="card my-5" style="max-width: 800px;">
-        <div class="row g-0" style="height: 400px;">
+    <div class="w-100">
+    <div class="card" style="max-width: 700px;">
+        <div class="row my-5 g-0" style="height: 400px;">
             <div class="col-md-6 col-12" style="background: white; padding-top: 70px; border: 1px solid green">
                 <img src="{{product.image.url}}" style="padding-left: 25px; padding-top: 30px; width: 95%; height: 250px; border-radius: 6px 6px 6px 6px" alt="...">
             </div>
@@ -47,5 +48,6 @@
             </div>
         </div>
     </div>
+</div>
 </section>
 {% endblock content %}

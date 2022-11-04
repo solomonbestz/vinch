@@ -1,6 +1,7 @@
 
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import JsonResponse
+from django.core.paginator import Paginator, EmptyPage
 import json
 import datetime
 
@@ -8,9 +9,13 @@ from .models import *
 
 # Store function
 def store(request):
-    category_view = Category.objects.get()
-    vinch_products = Product.objects.filter(category_id= 1)
-    context = {'vinch_products': vinch_products, 'category_view': category_view}
+    category_view_1 = Category.objects.filter(id= 2)
+    category_view_2  = Category.objects.filter(id= 3)
+    vinch_foods =Product.objects.filter(category_id= 1)
+    vinch_foodstuffs = Product.objects.filter(category_id= 2)
+    vinch_nuts = Product.objects.filter(category_id= 3)
+
+    context = {'vinch_foods': vinch_foods, 'vinch_foodstuffs': vinch_foodstuffs, 'vinch_nuts': vinch_nuts, 'category_view_1': category_view_1, 'category_view_2': category_view_2}
     return render(request, 'store/store.html', context)
 
 #Cart function

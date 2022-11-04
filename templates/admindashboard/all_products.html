@@ -8,13 +8,13 @@
 {% block content %}
 
 <div class="container-fluid my-5">
-    {% for vinchs in product %} 
     <div class="w-100">
         <h1 class="h1-vinch-special text-center fw-bold">Products</h1>
         <div class="row">
-            <div id="col" class="col-md-3 col-6">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{vinchs.image.url}}" class="card-img-top" alt="...">
+          {% for vinchs in product %} 
+            <div class="col-md-4 col-6">
+                <div class="card h-50" style="width: 18rem;">
+                    <img style="height: 50%; object-fit: cover" src="{{vinchs.image.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">{{vinchs.category}}</h5>
                       <p class="card-text">{{vinchs.description}}</p>
@@ -27,9 +27,9 @@
                       <a href="#" class="card-link">Edit</a>
                       <a href="#" class="card-link">Delete</a>
                     </div>
-                  </div>
+                </div>
             </div>
-    {% endfor %}
+          {% endfor %}
         </div>
     </div>
 </div>

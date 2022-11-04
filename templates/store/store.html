@@ -7,18 +7,16 @@
    <section class="container d-flex align align-items-center justify-content-center">
         <div class="container-fluid">
             <div class="row mt-5">
-                <h1 class="h1-local-market text-center fw-bold ">Local Market <span style="float: right; font-size: 14px; padding-top: 6px"><a href="/" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
+                <h1 class="h1-local-market text-center fw-bold ">Vinch Foods</h1>
                 <div class="owl-carousel owl-theme">
-                  {% for vinchs in vinch_products %} 
+                  {% for vinchs in vinch_foods %} 
                     <div class="item mb-4">
-                      <a href="#">
-                        <div id="local-card" class="card border-0 shadow">
-                              <img src="{{vinchs.image.url}}" alt="jollof rice" class="card-img-top">
-                              <div class="middle">
-                                <div class="text"><button id="btn">{{vinchs.name}}</button></div>
-                              </div>
-                        </div>
-                      </a>
+                      <div id="local-card" class="card border-0 shadow">
+                            <img src="{{vinchs.image.url}}" alt="jollof rice" class="card-img-top">
+                            <div class="middle">
+                              <div class="text"><button id="btn">{{vinchs.name}}</button></div>
+                            </div>
+                      </div>
                     </div> 
                   {% endfor%}
                 </div>
@@ -27,9 +25,11 @@
    </section>
    <section id="vinch-container" class="container d-flex align align-items-center justify-content-center">
     <div class="w-100">
-      <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{{category_view.get_absolute_url}}" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
+      {% for cat in category_view_1  %}
+      <h1 class="h1-vinch-special text-center fw-bold">Food Stuffs<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{{cat.get_absolute_url}}" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
+      {% endfor %}
       <div class="row">
-        {% for vinchs in vinch_products %} 
+        {% for vinchs in vinch_foodstuffs %} 
           <div id="col" class="col-md-4 col-6">
             <div class="box-element prdouct">
               <img src="{{vinchs.image.url}}" class="thumbnail" alt="...">
@@ -46,23 +46,30 @@
    </section>
    <section id="vinch-container" class="container d-flex align align-items-center justify-content-center">
     <div class="w-100">
-      <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{{category_view.get_absolute_url}}" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+      {% for cat in category_view_2  %}
+      <h1 class="h1-vinch-special text-center fw-bold">Vinch Specials<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{{cat.get_absolute_url}}" style="text-decoration: none; color: green; cursor: pointer">SEE ALL</a></span></h1>
+      {% endfor %}
+      <div class="row">
+        {% for vinchs in vinch_nuts  %}
+        <div class="col-md-3 col-6 mx-auto">
+          <div class="card h-50 w-100" style="width: 18rem;">
+            <img  style="height: 50%; width: object-fit: cover" src="{{vinchs.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title fw-bold">{{vinchs.name}}</h5>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-outline-success" href="{{vinchs.get_absolute_url}}">View</a>
+                <h4 class="fw-bold">&#8358;{{vinchs.price}}</h4>
+              </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
    </section>
 {% endblock content %}
+
 
 

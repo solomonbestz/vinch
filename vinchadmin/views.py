@@ -67,7 +67,7 @@ def add_product(request):
             description = request.POST.get("description")
             in_stock = request.POST.get("instock")
             price = request.POST.get("price")
-            image = request.POST.get("image")
+            image = request.FILES["image"]
 
             cate = Category.objects.get(name=cat)
 

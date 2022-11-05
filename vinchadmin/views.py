@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator, EmptyPage
 from account.models import NewUser
 from store.models import *
@@ -75,9 +75,6 @@ def add_product(request):
             Product.objects.create(name = name, category = cate, slug = slug, description = description, in_stock = True, price = price, image = image)
             
             return redirect('dashboard')
-
-
-
     return render(request, 'admindashboard/add_product.html', {'category': category})
 
 def add_category(request):
@@ -88,7 +85,6 @@ def add_category(request):
 
             Category.objects.create(name=name, slug=slug)
             return redirect('dashboard')
-
     return render(request, 'admindashboard/add_category.html')
     
 def orders(request):
@@ -103,3 +99,18 @@ def orders(request):
     else:
         return redirect('authentication')
     return render(request, 'admindashboard/all_orders.html', {'order': order})
+
+
+def view_order(request, id):
+    if request.user.is_authenticated:
+        order = get_object_or_404(Order, id=id)
+        order_item = order.orderitem_set.all()
+
+    return render(request, "admindashboard/view_order.html", {'order_item': order_item})
+
+def edit_order(request, id):
+    if request.user.is_authenticated:
+        order = get_object_or_404(Order, id=id)
+        if request.method == "POST":
+            pass
+    return render(request, "admindashboard/edit_order.html", {'order': order})

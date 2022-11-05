@@ -34,7 +34,7 @@
                                         <td>{{orders.order_status}}</td> 
                                         <td>{{orders.transaction_id}}</td>
                                         {% if orders.complete == True %}
-                                            <td><a href="">Edit</a> || <a href="">View</a> </td>   
+                                            <td><a href="{% url 'edit_order' orders.id %}">Edit</a> || <a href="{% url 'view_order' orders.id %}">View</a> </td>   
                                         {% endif %} 
                                     </tr>
                                 {% endfor %}

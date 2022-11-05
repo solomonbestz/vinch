@@ -1,0 +1,53 @@
+{% extends 'admindashboard/home.html' %}
+{% load static %}
+
+
+{% block title %}Edit Orders{% endblock title %}
+
+{% block content %}
+<div class="container-fluid my-5">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="card-header py-3 bg-success">
+            <h5 class="mb-0 text-font text-center text-uppercase">Edit Order</h5>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-6 mb-3">
+            <label for="customer">customer name</label>
+            <input type="text" class="form-control" id="customer" placeholder="" name="customer" value="{{order.customer}}" disabled>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="complete">Complete</label>
+            <select class="custom-select d-block w-100" id="complete" name="complete" disabled>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid status.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="status">Order Status</label>
+                <select class="custom-select d-block w-100" id="status" name="status" required>
+                    <option>Pending</option>
+                    <option>On the way</option>
+                    <option>Delivered</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid atatus.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="transaction_id">Transaction Id</label>
+                <input type="text" class="form-control" id="transaction_id" placeholder="" name="transaction_id" value="{{order.transaction_id}}" disabled>
+            </div>
+        </div>
+
+        <button class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
+    </form>
+
+</div>
+{% endblock content %}

@@ -90,7 +90,7 @@ def add_category(request):
 def orders(request):
     if request.user.is_authenticated:
         o = Order.objects.all()
-        order = Paginator(o, 10)
+        order = Paginator(o, 5)
         page_num = request.GET.get('page', 1)
         try:
             order = order.page(page_num)

@@ -40,11 +40,11 @@
                                 {% endfor %}
                             </tbody>
                             <div class="d-flex justify-content-center fw-bold" style="background: orange; border-radius: 3px">
-                                {% if users.has_previous %}
-                                    <a style="margin-right: 10px; text-decoration: none; text-align: center; border-radius: 2px; width: 100px; cursor: pointer; background: red; color: black" href="{% url 'users' %}?page={{users.previous_page_number}}">Previous</a>
+                                {% if order.has_previous %}
+                                    <a style="margin-right: 10px; text-decoration: none; text-align: center; border-radius: 2px; width: 100px; cursor: pointer; background: red; color: black" href="{% url 'orders' %}?page={{order.previous_page_number}}">Previous</a>
                                 {% endif %}
-                                {% if users.has_next %}
-                                    <a style="margin-left: 10px; text-decoration: none; text-align: center; border-radius: 2px; width: 100px; cursor: pointer; background: green; color: black" href="{% url 'users' %}?page={{users.next_page_number}}">Next</a>
+                                {% if order.has_next %}
+                                    <a style="margin-left: 10px; text-decoration: none; text-align: center; border-radius: 2px; width: 100px; cursor: pointer; background: green; color: black" href="{% url 'orders' %}?page={{order.next_page_number}}">Next</a>
                                 {% endif %}
                             </div>
                         </table>

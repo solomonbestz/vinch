@@ -112,5 +112,26 @@ def edit_order(request, id):
     if request.user.is_authenticated:
         order = get_object_or_404(Order, id=id)
         if request.method == "POST":
-            pass
+            order_status = request.POST.get('status')
+            transaction_id = request.POST.get('transaction_id')
+
+            order.order_status = order_status
+            order.transaction_id = transaction_id
+
+            order.save()
+            return redirect('dashboard')
+
     return render(request, "admindashboard/edit_order.html", {'order': order})
+
+
+def view_customer(request, id):
+    if request.user.is_authenticated:
+        customer = get_object_or_404(NewUser, id=id)
+        customer_user = get_object_or_404(Customer, id=id)
+        try:
+            shipping = ShippingAddress.objects.get(customer = customer_user)
+        except:
+            shipping ={}
+
+    return render(request, 'admindashboard/view_customer.html', {'customer': customer, 'shipping': shipping})
+

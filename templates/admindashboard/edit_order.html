@@ -13,14 +13,14 @@
         </div>
         <div class="row my-3">
           <div class="col-md-6 mb-3">
-            <label for="customer">customer name</label>
-            <input type="text" class="form-control" id="customer" placeholder="" name="customer" value="{{order.customer}}" disabled>
+            <label for="customer">Customer</label>
+            <input type="text" class="form-control" id="customer" placeholder="" name="customer" value="{{order.customer}}" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="complete">Complete</label>
-            <select class="custom-select d-block w-100" id="complete" name="complete" disabled>
-                <option>Yes</option>
-                <option>No</option>
+            <select class="custom-select d-block w-100" id="complete" name="complete" required>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
             </select>
             <div class="invalid-feedback">
               Please select a valid status.
@@ -37,12 +37,12 @@
                     <option>Delivered</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid atatus.
+                  Please select a valid status.
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="transaction_id">Transaction Id</label>
-                <input type="text" class="form-control" id="transaction_id" placeholder="" name="transaction_id" value="{{order.transaction_id}}" disabled>
+                <input type="text" class="form-control" id="transaction_id" placeholder="" name="transaction_id" value="{{order.transaction_id}}" required>
             </div>
         </div>
 

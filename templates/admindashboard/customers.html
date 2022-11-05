@@ -30,7 +30,7 @@
                                         <td>{{user.user}}</td>
                                         <td>{{user.name}}</td>
                                         <td>{{user.email}}</td> 
-                                        <td><a href="">View</a></td>    
+                                        <td><a href="{% url 'view_customer' user.id %}">View</a></td>    
                                     </tr>
                                 {% endfor %}
                             </tbody>

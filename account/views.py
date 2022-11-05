@@ -69,8 +69,6 @@ def authentication(request):
             else: 
                 messages.error(request, "Incorrect Login Details")
                 return redirect('authentication')  
-        
-        print("Didn't enter")
 
     return render(request, "account/authentication.html")
 

@@ -4,51 +4,51 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-center w-100 h-100 my-5">
-    <div class="w-20 text-center">
-        
+
+
+
+<div class="d-flex justify-content-center w-100 my-5">
+  <div class="row my-5 w-100">
+    <div class="py-3 bg-success">
+      <h5 class="mb-0 text-font text-uppercase">Account Details<span style="float: right; font-size: 14px; padding-top: 6px; margin-right: 13px;"><a href="{% url 'signout' %}" style="text-decoration: none; color: black; cursor: pointer">Logout</a></span></h5>
     </div>
-    <div class="w-80 my-5`">
-        <h3 style="font-size: 16px; border: 1px solid lightgrey; border-radius: 4px 4px; margin-bottom: 0; height: 50px; padding-top: 20px; padding-left:5px"><b>ACCOUNT OVERVIEW</b></h3>
-        <div class="row w-90" style=" border: 1px solid lightgrey; padding-top: 10px;">
-            <div class="col-md-6">
-                <div class="card mb-3" style="width: 23rem; height: 200px; border: 1px solid lightgrey">
-                    <div style="font-size: 13px; font-weight: bold; padding-left:20px; padding-top: 15px; border-bottom: 1px solid lightgrey; height: 50px;">ACCOUNT DETAILS </div>
-                    <div class="card-body text-primary">
-                        <h6 class="card-title" style="color: black">{{account.first_name}} {{account.last_name}}</h6>
-                        <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.email}}                                                                </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card  mb-3" style="width: 23rem; height: 200px; border: 1px solid lightgrey">
-                    <div style="font-size: 13px; font-weight: bold; padding-left:20px; padding-top: 15px; border-bottom: 1px solid lightgrey; height: 50px;">ADDRESS BOOK</div>
-                    <div class="card-body text-primary">
-                        <h6 class="card-title" style="color: black">{{shipping.first_name}} {{shipping.last_name}}</h6>
-                        <p class="card-text my-2" style="font-size: 12px; color: black;">{{shipping.address}} {{shipping.city}} {{shipping.state}}</p>
-                        <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.phone_number}}</p>
-                    </div>
-                </div>
+    <div class="col-md-6 col-12">
+        <div class="card mb-3" style="width: 23rem; height: 200px; border: 1px solid lightgrey">
+            <div style="font-size: 13px; font-weight: bold; padding-left:20px; padding-top: 15px; border-bottom: 1px solid lightgrey; height: 50px;">ACCOUNT DETAILS </div>
+            <div class="card-body text-primary">
+                <h6 class="card-title" style="color: black">{{account.first_name}} {{account.last_name}}</h6>
+                <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.email}}                                                                </p>
             </div>
         </div>
     </div>
+    <div class="col-md-6 col-12">
+        <div class="card  mb-3" style="width: 23rem; height: 200px; border: 1px solid lightgrey">
+            <div style="font-size: 13px; font-weight: bold; padding-left:20px; padding-top: 15px; border-bottom: 1px solid lightgrey; height: 50px;">ADDRESS BOOK</div>
+            <div class="card-body text-primary">
+                <h6 class="card-title" style="color: black">{{shipping.first_name}} {{shipping.last_name}}</h6>
+                <p class="card-text my-2" style="font-size: 12px; color: black;">{{shipping.address}} {{shipping.city}} {{shipping.state}}</p>
+                <p class="card-text my-2" style="font-size: 12px; color: black;">{{account.phone_number}}</p>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>
 
-<div class="d-flex justify-content-center w-100 my-3">
+<div style="" class="d-flex justify-content-center w-100">
     <form action="" method="post">
         {% csrf_token %}
         <div class="card-header py-3 bg-success">
             <h5 class="mb-0 text-font text-uppercase">Edit Shipping Address</h5>
         </div>
-        <div class="row my-3">
-          <div class="col-md-6 mb-3">
+        <div class="row my-5">
+          <div class="col-md-6 col-6 mb-3">
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" placeholder="" name="firstname" value="{{shipping.first_name}}" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
-          <div class="col-md-6 mb-3">
+          <div class="col-md-6 col-6 mb-3">
             <label for="lastName">Last name</label>
             <input type="text" class="form-control" id="lastName" placeholder="" name="lastname" value="{{shipping.last_name}}" required>
             <div class="invalid-feedback">
@@ -58,14 +58,14 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 col-6 mb-3">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="you@example.com" name="email" value="{{account.email}}" disabled>
                 <div class="invalid-feedback">
                   Please enter a valid email address for shipping updates.
                 </div>
               </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 col-6 mb-3">
               <label for="lastName">city</label>
               <input type="text" class="form-control" id="lastName" placeholder="" name="city" value="{{shipping.city}}" required>
               <div class="invalid-feedback">
@@ -75,14 +75,14 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 col-6 mb-3">
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" value="{{shipping.address}}" required>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 col-6 mb-3">
                 <label for="registerRepeatPassword">Phone</label>
                 <input type="tel" name="phone" id="registerRepeatPassword" value="{{account.phone_number}}" class="form-control" disabled />
                 <div class="invalid-feedback">
@@ -92,7 +92,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 mb-3">
+          <div class="col-md-5 col-5 mb-3">
             <label for="country">Country</label>
             <select class="custom-select d-block w-100" id="country" name="country" required>
                 <option value="">Choose...</option>
@@ -105,14 +105,14 @@
               Please select a valid country.
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-4 col-4 mb-3">
             <label for="state">State</label>
             <input type="text" id="form11Example5" name="state" value="{{shipping.state}}" class="form-control" required>
             <div class="invalid-feedback">
               Please provide a valid state.
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 col-3 mb-3">
             <label for="zip">Zip</label>
             <input type="text" class="form-control" id="zip" placeholder="" name="zip" value="{{shipping.zipcode}}" required>
             <div class="invalid-feedback">
@@ -120,8 +120,8 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
+        <button style='margin-bottom: 80px' class="btn btn-success btn-lg btn-block w-100" type="submit">Save</button>
     </form>
-<div>
-
+  </div>
+</div>
 {% endblock content%}

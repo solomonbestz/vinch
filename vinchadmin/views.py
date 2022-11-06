@@ -6,7 +6,18 @@ from store.models import *
 
 
 def dashboard(request):
-    return render(request, 'admindashboard/dashboard.html')
+    if request.user.is_authenticated:
+        user = NewUser.objects.filter(is_active=True).count()
+        customer = Customer.objects.all().count()
+        order = Order.objects.filter(complete = True).count()
+        product = Product.objects.all().count()
+        context = {
+            'user': user,
+            'customer': customer,
+            'order': order,
+            'product': product
+        }
+    return render(request, 'admindashboard/dashboard.html', context)
 
 def users(request):
     if request.user.is_authenticated:

@@ -1,5 +1,3 @@
-import imp
-import django
 from django.core.validators import RegexValidator
 from django.db import models
 from django.dispatch import Signal
